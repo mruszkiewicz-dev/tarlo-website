@@ -1,22 +1,11 @@
-import type { Metadata } from 'next'
-import './globals.css'
-import { alegreya } from '@/app/ui/fonts'
-
-export const metadata: Metadata = {
-  title: 'Tarło - Oficjalna Strona Zespołu',
-  description: 'Tarło - Oficjalna Strona Zespołu',
+type LayoutProps = {
+  children: React.ReactNode
 }
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode
-}) {
+export default function Layout({ children }: LayoutProps) {
   return (
-    <html lang='pl'>
-      <body className={`${alegreya.className} antialiased`}>
-        <>{children}</>
-      </body>
-    </html>
+    <>
+      <main>{children}</main>
+    </>
   )
 }
