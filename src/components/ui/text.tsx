@@ -1,4 +1,4 @@
-import { myFont } from '@/app/ui/fonts'
+import { myFont } from '@/styles/fonts'
 
 type TextProps = {
   children: string

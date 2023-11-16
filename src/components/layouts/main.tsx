@@ -1,5 +1,6 @@
 import React, { ReactNode } from 'react'
 import Head from 'next/head'
+import { NavBar } from '@/components/ui/nav-bar'
 
 type MainProps = {
   children: ReactNode
@@ -15,6 +16,7 @@ const Main: React.FC<MainProps> = ({ children }) => {
         <meta name='author' content='mruszkiewicz.dev' />
         <title>Tarło</title>
       </Head>
+      <NavBar />
       {children}
     </div>
   )
