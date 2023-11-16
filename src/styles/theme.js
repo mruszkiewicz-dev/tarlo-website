@@ -3,14 +3,14 @@ import { mode } from '@chakra-ui/theme-tools'
 import { alegreya } from './fonts'
 
 const config = {
-  initialColorMode: 'dark',
+  initialColorMode: 'light',
   useSystemColorMode: false,
 }
 
 const styles = {
   global: (props) => ({
     body: {
-      bg: mode('#fef6ec', '#06101c')(props),
+      bg: mode('#fef6ec', '#000000')(props),
     },
   }),
 }

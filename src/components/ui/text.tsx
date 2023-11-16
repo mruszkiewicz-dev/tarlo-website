@@ -1,11 +1,17 @@
 import { myFont } from '@/styles/fonts'
+import { Center, Text } from '@chakra-ui/react'
 
 type TextProps = {
   children: string
-  size: 'lg' | '9xl'
+  size: 'lg' | '8xl'
 }
 
-export const Text = ({ children, size }: TextProps) => {
-  const textSize = `text-${size}`
-  return <h1 className={[myFont.className, textSize].join(' ')}>{children}</h1>
+export const MyText = ({ children, size }: TextProps) => {
+  return (
+    <Center bg='tomato' h='100px' color='white'>
+      <Text fontFamily={myFont.style.fontFamily} fontSize={size}>
+        {children}
+      </Text>
+    </Center>
+  )
 }

@@ -1,3 +1,5 @@
+import { MyText } from '@/components/ui/text'
+
 export default function About() {
-  return <div>About</div>
+  return <MyText size='8xl'>About</MyText>
 }
