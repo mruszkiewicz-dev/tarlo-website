@@ -1,6 +1,7 @@
 import React, { ReactNode } from 'react'
 import Head from 'next/head'
 import { NavBar } from '@/components/ui/nav-bar'
+import { Footer } from '@/components/ui/footer'
 
 type MainProps = {
   children: ReactNode
@@ -18,6 +19,7 @@ const Main: React.FC<MainProps> = ({ children }) => {
       </Head>
       <NavBar />
       {children}
+      <Footer />
     </div>
   )
 }
