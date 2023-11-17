@@ -2,6 +2,7 @@ import React, { ReactNode } from 'react'
 import Head from 'next/head'
 import { NavBar } from '@/components/ui/nav-bar'
 import { Footer } from '@/components/ui/footer'
+import { Box } from '@chakra-ui/react'
 
 type MainProps = {
   children: ReactNode
@@ -17,9 +18,13 @@ const Main: React.FC<MainProps> = ({ children }) => {
         <meta name='author' content='mruszkiewicz.dev' />
         <title>Tarło</title>
       </Head>
-      <NavBar />
-      {children}
-      <Footer />
+      <Box display='flex' flexDirection='column' minHeight='100vh'>
+        <NavBar />
+        <Box flex='1' position='relative'>
+          {children}
+        </Box>
+        <Footer />
+      </Box>
     </div>
   )
 }
