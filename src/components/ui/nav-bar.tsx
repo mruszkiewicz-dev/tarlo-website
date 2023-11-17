@@ -29,7 +29,15 @@ const NavLink = (props: Props) => {
 
 export const NavBar = () => {
   return (
-    <Box bg={useColorModeValue('gray.100', 'gray.900')} px={4} top='0'>
+    <Box
+      bg={useColorModeValue('gray.100', 'gray.900')}
+      px={4}
+      top='0'
+      position='fixed'
+      width='100%'
+      overflow='hidden'
+      zIndex={99}
+    >
       <Flex h={16} alignItems={'center'} justifyContent={'center'}>
         <Box>Logo</Box>
         <HStack spacing={8} alignItems={'center'}>

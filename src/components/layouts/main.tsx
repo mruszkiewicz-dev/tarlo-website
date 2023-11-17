@@ -2,7 +2,7 @@ import React, { ReactNode } from 'react'
 import Head from 'next/head'
 import { NavBar } from '@/components/ui/nav-bar'
 import { Footer } from '@/components/ui/footer'
-import { Box } from '@chakra-ui/react'
+import { Box, Flex, Spacer } from '@chakra-ui/react'
 
 type MainProps = {
   children: ReactNode
@@ -18,13 +18,14 @@ const Main: React.FC<MainProps> = ({ children }) => {
         <meta name='author' content='mruszkiewicz.dev' />
         <title>Tarło</title>
       </Head>
-      <Box display='flex' flexDirection='column' minHeight='100vh'>
+      <Flex direction='column' minH='100vh'>
         <NavBar />
-        <Box flex='1' position='relative'>
+        <Box flex='1' position='relative' mt={16} p={0} minH='100vh'>
           {children}
         </Box>
+        <Spacer />
         <Footer />
-      </Box>
+      </Flex>
     </div>
   )
 }

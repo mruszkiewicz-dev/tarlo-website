@@ -4,7 +4,7 @@ import { MyText } from '@/components/ui/my-text'
 
 export default function Home() {
   return (
-    <Box height='90vh' bgColor='#AFB2BA'>
+    <Flex direction='column' minHeight='100%' bgColor='#AFB2BA'>
       <Box display={{ base: 'none', lg: 'flex', '2xl': 'none' }}>
         <Image
           src='/background_home.jpg'
@@ -24,13 +24,13 @@ export default function Home() {
         />
       </Box>
 
-      <Flex height='90%' alignItems='center' justifyContent='center'>
+      <Flex alignItems='center' justifyContent='center'>
         <Box zIndex={10}>
           <MyText size={{ base: '7xl', md: '8xl' }}>
             Oficjalna strona Zespołu
           </MyText>
         </Box>
       </Flex>
-    </Box>
+    </Flex>
   )
 }

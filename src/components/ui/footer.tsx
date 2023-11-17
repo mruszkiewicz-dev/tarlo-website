@@ -13,7 +13,6 @@ export const Footer = () => {
         as='footer'
         w='100%'
         py={2}
-        position='fixed'
         bottom='0'
       >
         <Box pb={2}>
