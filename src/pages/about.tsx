@@ -1,10 +1,10 @@
 import { MyText } from '@/components/ui/my-text'
-import { Box, Text, Flex, Center } from '@chakra-ui/react'
+import { Box, Text, Flex } from '@chakra-ui/react'
 
 export default function About() {
   return (
     <Box>
-      <MyText size={{ base: '7xl', md: '8xl' }}>O nas</MyText>
+      <MyText>O nas</MyText>
       <Flex
         px={{ base: 20, xl: '300px', '2xl': '440px' }}
         alignItems='center'

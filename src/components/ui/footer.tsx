@@ -4,7 +4,7 @@ import Link from 'next/link'
 
 export const Footer = () => {
   return (
-    <Box>
+    <Box zIndex={9999}>
       <Flex
         justifyContent='center'
         flexDirection='column'

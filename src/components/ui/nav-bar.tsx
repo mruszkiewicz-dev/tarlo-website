@@ -1,6 +1,6 @@
 import { Box, Flex, HStack, useColorModeValue } from '@chakra-ui/react'
 import Link from 'next/link'
-import { Links } from '@/data/route.js'
+import { Links } from '@/data/routes.js'
 
 interface Props {
   children: React.ReactNode

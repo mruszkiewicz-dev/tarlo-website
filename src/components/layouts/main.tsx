@@ -20,7 +20,7 @@ const Main: React.FC<MainProps> = ({ children }) => {
       </Head>
       <Flex direction='column' minH='100vh'>
         <NavBar />
-        <Box flex='1' position='relative' mt={16} p={0} minH='100vh'>
+        <Box mt={16} flex='1'>
           {children}
         </Box>
         <Spacer />

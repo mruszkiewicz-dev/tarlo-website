@@ -7,5 +7,5 @@ export const alegreya = Alegreya_Sans_SC({
 })
 
 export const myFont = localFont({
-  src: '../../public/DryTransferFolio-Caps.otf',
+  src: '../../public/DryTransferFolio-Caps.ttf',
 })
