@@ -1,10 +1,14 @@
 import { useState } from 'react'
 import { myFont } from '@/styles/fonts'
 import { Box, Center, Text, Image, Flex } from '@chakra-ui/react'
-import { rotateVertCenter } from '@/styles/animations'
 
-export const CardMember = () => {
-  const animation = `${rotateVertCenter} 0.9s linear both`
+interface CardMemberProps {
+  name: string
+  desc: string
+  foto: string
+}
+
+export const CardMember: React.FC<CardMemberProps> = ({ name, desc, foto }) => {
   const [active, setActive] = useState(false)
 
   return (
@@ -14,15 +18,14 @@ export const CardMember = () => {
         position='relative'
         onMouseEnter={() => setActive(true)}
         onMouseLeave={() => setActive(false)}
-        _hover={{ animation: animation }}
       >
         <Center color='white'>
           <Flex alignItems='center' justifyContent='center'>
             <Image
-              src='/band/wojtek.jpg'
-              boxSize='250px'
+              src={`/band/${foto}.jpg`}
+              boxSize='300px'
               alt='wojtek'
-              _hover={{ filter: 'blur(5px)', animation: animation }}
+              style={{ filter: active ? 'blur(5px)' : 'none' }}
               border='solid yinmn_blue.200'
               borderRadius='5px'
             />
@@ -36,19 +39,18 @@ export const CardMember = () => {
                 background='none'
               >
                 <Text
-                  fontSize='24px'
-                  color='white'
+                  fontSize={26}
+                  color='red.600'
                   fontFamily={myFont.style.fontFamily}
                 >
-                  Name
+                  {name}
                 </Text>
                 <Text
-                  fontSize='24px'
+                  fontSize={22}
                   color='white'
                   fontFamily={myFont.style.fontFamily}
-                  background='none'
                 >
-                  Name
+                  {desc}
                 </Text>
               </Box>
             )}

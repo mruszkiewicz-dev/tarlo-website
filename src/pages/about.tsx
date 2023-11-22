@@ -6,7 +6,7 @@ export default function About() {
     <Box>
       <MyText>O nas</MyText>
       <Flex
-        px={{ base: 20, xl: '300px', '2xl': '440px' }}
+        px={{ base: 20, xl: '200px', '2xl': '440px' }}
         alignItems='center'
         justifyContent='center'
         minHeight='60vh'
@@ -18,7 +18,7 @@ export default function About() {
             sm: 'xl',
             lg: '2xl',
             xl: '3xl',
-            '2xl': '4xl',
+            '2xl': '3xl',
           }}
         >
           Niektórych tematów nie można opowiedzieć w zwykły sposób - trzeba do

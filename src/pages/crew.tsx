@@ -1,6 +1,7 @@
 import { MyText } from '@/components/ui/my-text'
 import { Flex } from '@chakra-ui/react'
 import { CardMember } from '@/components/ui/card-member'
+import { band } from '@/data/data'
 
 export default function Crew() {
   return (
@@ -12,8 +13,14 @@ export default function Crew() {
         justifyContent='center'
         flexDirection={{ base: 'column', xl: 'row' }}
       >
-        <CardMember />
-        <CardMember />
+        {band.map((item) => (
+          <CardMember
+            key={item.id}
+            name={item.name}
+            desc={item.desc}
+            foto={item.id}
+          />
+        ))}
       </Flex>
     </>
   )

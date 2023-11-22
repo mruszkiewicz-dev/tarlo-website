@@ -12,6 +12,7 @@ export const Footer = () => {
         bgColor='gray'
         as='footer'
         w='100%'
+        h={20}
         py={2}
         bottom='0'
       >
