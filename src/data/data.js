@@ -30,7 +30,7 @@ export const albums = [
   {
     id: 'prolog',
     type: 'ep',
-    name: 'prolog',
+    name: 'Prolog - pierwsza EP zespołu.',
     desc: [
       { title: 'Produkcja muzyczna', desc: 'Maciek Gładysz' },
       { title: 'Mix', desc: 'Marcin Gajko' },
@@ -43,13 +43,12 @@ export const albums = [
   {
     id: 'lawka',
     type: 'ep',
-    name: 'ławka',
+    name: 'Ławka Szczęścia - druga EP zespołu.',
     desc: [
       { title: 'Produkcja muzyczna', desc: 'Maciek Gładysz' },
-      { title: 'Mix', desc: 'Marcin Gajko' },
-      { title: 'Mastering: „List”', desc: 'Leszek Kamiński' },
-      { title: 'Mastering:„Łysybył”, „Czy warto”', desc: 'Michał Eprom Baj' },
-      { title: 'Realizacja nagrań perkusji', desc: 'Wojtek Olszak' },
+      { title: 'Mix', desc: 'Maciek Gładysz' },
+      { title: 'Mastering', desc: 'Magdalena Piotrowska (Plewa)' },
+      { title: 'Realizacja nagrań perkusji', desc: 'Łukasz Błasiński' },
       { title: 'Realizacja nagrań gitar i vocalu', desc: 'Maciek Gładysz' },
     ],
   },

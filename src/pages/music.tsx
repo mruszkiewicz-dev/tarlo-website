@@ -8,17 +8,12 @@ export default function Music() {
       <MyText>Rzuć uchem</MyText>
       <Flex
         mt={{ base: 2, xl: 1 }}
-        align='center'
+        align='top'
         justifyContent='center'
         flexDirection={{ base: 'column', xl: 'row' }}
       >
         {albums.map((item) => (
-          <CardAlbum
-            key={item.id}
-            name={item.name}
-            desc={item.desc}
-            id={item.id}
-          />
+          <CardAlbum key={item.id} {...item} />
         ))}
       </Flex>
     </>

@@ -17,7 +17,7 @@ export const CardAlbum: React.FC<CardAlbumProps> = ({ name, id, desc }) => {
     <Box mx={10} my={2}>
       <Flex alignItems='center' justifyContent='center' direction='column'>
         <Text fontSize={30}>{name}</Text>
-        <Image src={`/albums/${id}.jpg`} width={300} height={300} alt={name} />
+        <Image src={`/albums/${id}.jpg`} width={290} height={290} alt={name} />
         {desc.map((item, index) => (
           <Flex
             key={index}
