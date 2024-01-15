@@ -1,6 +1,8 @@
 import nodemailer from 'nodemailer'
 
 export default async function handler(request, res) {
+  const { email, message } = await JSON.parse(request.body)
+
   const transport = nodemailer.createTransport({
     service: 'gmail',
     auth: {
@@ -12,14 +14,14 @@ export default async function handler(request, res) {
   const mailOptions = {
     from: process.env.NODEMAILER_MAIL,
     to: process.env.NODEMAILER_MAIL,
-    subject: `Message from `,
-    text: 'test',
+    subject: `Wiadomość od ${email} `,
+    text: message,
   }
 
   try {
     await transport.sendMail(mailOptions)
-    return res.status(200).json({ message: 'Hello from Next.js!' })
+    return res.status(200).json({ message: 'Ok' })
   } catch (err) {
-    return res.status(500).json({ message: 'test!', err })
+    return res.status(500).json({ err })
   }
 }

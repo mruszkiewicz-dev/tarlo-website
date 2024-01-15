@@ -17,7 +17,10 @@ export const Form = () => {
     },
 
     onSubmit: (values) => {
-      alert(JSON.stringify(values, null, 2))
+      fetch('/api/email', {
+        method: 'POST',
+        body: JSON.stringify({ ...values }),
+      })
     },
   })
 

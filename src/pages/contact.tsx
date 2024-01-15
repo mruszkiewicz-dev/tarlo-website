@@ -8,7 +8,7 @@ export default function Contact() {
     <>
       <MyText>Kontakt</MyText>
       <Flex mt={{ base: 2, xl: 10 }} align='center' justifyContent='center'>
-        <ContactForm />
+        <Form />
       </Flex>
     </>
   )
