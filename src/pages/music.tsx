@@ -1,7 +1,7 @@
-import { MyText } from '@/components/ui/my-text'
 import { CardAlbum } from '@/components/ui/card-album'
-import { Flex } from '@chakra-ui/react'
+import { MyText } from '@/components/ui/my-text'
 import { albums } from '@/data/data'
+import { Flex } from '@chakra-ui/react'
 export default function Music() {
   return (
     <>

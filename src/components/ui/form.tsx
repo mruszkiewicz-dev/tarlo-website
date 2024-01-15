@@ -1,11 +1,12 @@
 import { useFormik } from 'formik'
 import {
   Input,
+  Textarea,
   Button,
   FormControl,
   FormLabel,
   Flex,
-  VStack,
+  useColorModeValue,
 } from '@chakra-ui/react'
 
 export const Form = () => {
@@ -22,8 +23,13 @@ export const Form = () => {
 
   return (
     <form onSubmit={formik.handleSubmit}>
-      <Flex alignItems='center' justifyContent='center' direction='column'>
-        <FormControl>
+      <Flex
+        alignItems='center'
+        justifyContent='center'
+        direction='column'
+        w={{ base: '100', md: '500px' }}
+      >
+        <FormControl mt='2'>
           <FormLabel textAlign='center' htmlFor='email'>
             Email
           </FormLabel>
@@ -31,12 +37,32 @@ export const Form = () => {
             id='email'
             name='email'
             type='email'
-            variant='filled'
             onChange={formik.handleChange}
             value={formik.values.email}
+            bg={useColorModeValue('gray.200', 'gray.700')}
           />
         </FormControl>
-        <Button type='submit'>Wyślij</Button>
+        <FormControl mt='2'>
+          <FormLabel textAlign='center' htmlFor='message'>
+            Wiadomość
+          </FormLabel>
+          <Textarea
+            id='message'
+            name='message'
+            variant='textarea'
+            onChange={formik.handleChange}
+            value={formik.values.message}
+            h={40}
+            bg={useColorModeValue('gray.200', 'gray.700')}
+          />
+        </FormControl>
+        <Button
+          mt='2'
+          type='submit'
+          bg={useColorModeValue('gray.200', 'gray.700')}
+        >
+          Wyślij
+        </Button>
       </Flex>
     </form>
   )
