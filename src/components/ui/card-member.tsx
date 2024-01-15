@@ -24,7 +24,7 @@ export const CardMember: React.FC<CardMemberProps> = ({ name, desc, foto }) => {
             <Image
               src={`/band/${foto}.jpg`}
               boxSize='300px'
-              alt='wojtek'
+              alt={foto}
               style={{ filter: active ? 'blur(5px)' : 'none' }}
               border='solid yinmn_blue.200'
               borderRadius='5px'

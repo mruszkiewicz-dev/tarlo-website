@@ -18,7 +18,7 @@ export default function Crew() {
             key={item.id}
             name={item.name}
             desc={item.desc}
-            foto={item.id}
+            foto={item.title}
           />
         ))}
       </Flex>

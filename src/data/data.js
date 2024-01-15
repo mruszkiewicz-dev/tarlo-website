@@ -1,26 +1,31 @@
 export const band = [
   {
     id: 1,
+    title: 'seba',
     name: 'Sebastian Pokojowy',
     desc: 'gitara basowa',
   },
   {
     id: 2,
+    title: 'bartek',
     name: 'Bartek Wielgosz',
     desc: 'gitara',
   },
   {
     id: 3,
+    title: 'wojtek',
     name: 'Veddie Hare',
     desc: 'wokalista gitara teksty',
   },
   {
     id: 4,
+    title: 'rafal',
     name: 'Rafał Wielgosz',
     desc: 'gitara teksty',
   },
   {
     id: 5,
+    title: 'michal',
     name: 'Michał Ruszkiewicz',
     desc: 'perkusja',
   },
