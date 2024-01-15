@@ -13,8 +13,9 @@ const NavLink = (props: Props) => {
   return (
     <Link key={href} href={href}>
       <Box
-        px={2}
+        px={3}
         py={1}
+        fontSize={{ base: 'md', md: '2xl' }}
         rounded={'md'}
         _hover={{
           textDecoration: 'none',
@@ -41,7 +42,7 @@ export const NavBar = () => {
       <Flex h={16} alignItems={'center'} justifyContent={'center'}>
         <Box>Logo</Box>
         <HStack spacing={8} alignItems={'center'}>
-          <HStack as={'nav'} spacing={4} display={{ base: 'none', md: 'flex' }}>
+          <HStack as={'nav'} spacing={8} display={{ base: 'none', md: 'flex' }}>
             {Links.map((item) => (
               <NavLink href={item.link} key={item.link}>
                 {item.name}
