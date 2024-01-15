@@ -1,4 +1,3 @@
-// eslint-disable-next-line @typescript-eslint/no-var-requires
 import nodemailer from 'nodemailer'
 //-----------------------------------------------------------------------------
 export async function sendMail(subject, toEmail, otpText) {

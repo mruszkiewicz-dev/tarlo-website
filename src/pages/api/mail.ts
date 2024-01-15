@@ -1,4 +1,4 @@
-import { sendMail } from '@/'
+import { sendMail } from ''
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 const handler = async (req, res) => {
   try {
