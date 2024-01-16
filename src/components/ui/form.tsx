@@ -9,11 +9,34 @@ import {
   useColorModeValue,
 } from '@chakra-ui/react'
 
+interface FormValues {
+  email: string
+  message: string
+}
+
 export const Form = () => {
   const formik = useFormik({
     initialValues: {
       email: '',
       message: '',
+    },
+
+    validate: (values: FormValues) => {
+      const errors: Partial<FormValues> = {}
+
+      if (!values.email) {
+        errors.email = 'Wpisz adres e-mail'
+      } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(values.email)) {
+        errors.email = 'Dodaj poprawny adres email'
+      }
+
+      if (!values.message) {
+        errors.message = 'Wpisz wiadomość'
+      } else if (!/^.{4,}$/.test(values.message)) {
+        errors.message = 'Trochę za krótka ta wiadomość'
+      }
+
+      return errors
     },
 
     onSubmit: (values) => {
@@ -32,37 +55,41 @@ export const Form = () => {
         direction='column'
         w={{ base: '100', md: '500px' }}
       >
-        <FormControl mt='2'>
+        <FormControl mt='2' isInvalid={!!formik.errors.email}>
           <FormLabel textAlign='center' htmlFor='email'>
             Email
           </FormLabel>
           <Input
             id='email'
             name='email'
-            type='email'
             onChange={formik.handleChange}
             value={formik.values.email}
-            bg={useColorModeValue('gray.200', 'gray.700')}
+            bg={useColorModeValue('gray.300', 'gray.700')}
           />
+          {formik.touched.email && formik.errors.email && (
+            <div style={{ color: 'red' }}>{formik.errors.email}</div>
+          )}
         </FormControl>
-        <FormControl mt='2'>
+        <FormControl mt='2' isInvalid={!!formik.errors.message}>
           <FormLabel textAlign='center' htmlFor='message'>
             Wiadomość
           </FormLabel>
           <Textarea
             id='message'
             name='message'
-            variant='textarea'
             onChange={formik.handleChange}
             value={formik.values.message}
             h={40}
-            bg={useColorModeValue('gray.200', 'gray.700')}
+            bg={useColorModeValue('gray.300', 'gray.700')}
           />
+          {formik.touched.message && formik.errors.message && (
+            <div style={{ color: 'red' }}>{formik.errors.message}</div>
+          )}
         </FormControl>
         <Button
           mt='2'
           type='submit'
-          bg={useColorModeValue('gray.200', 'gray.700')}
+          bg={useColorModeValue('gray.300', 'gray.700')}
         >
           Wyślij
         </Button>
