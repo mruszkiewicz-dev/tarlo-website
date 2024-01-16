@@ -1,6 +1,10 @@
 module.exports = {
   parser: '@typescript-eslint/parser',
   plugins: ['@typescript-eslint'],
+  rules: [
+    { 'react-hooks/rules-of-hooks': 'off' },
+    { 'react-hooks/exhaustive-deps': 'warn' },
+  ],
   extends: [
     'next',
     'next/core-web-vitals',

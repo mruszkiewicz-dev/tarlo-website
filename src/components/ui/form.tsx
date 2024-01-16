@@ -2,6 +2,8 @@
 
 import { useState } from 'react'
 import { useFormik } from 'formik'
+import { EmailIcon } from '@chakra-ui/icons'
+
 import {
   Input,
   Textarea,
@@ -10,6 +12,9 @@ import {
   FormLabel,
   Flex,
   useColorModeValue,
+  ScaleFade,
+  Center,
+  Text,
 } from '@chakra-ui/react'
 
 interface FormValues {
@@ -55,7 +60,20 @@ export const Form = () => {
   })
 
   return isSubmitted ? (
-    <p>dd</p>
+    <ScaleFade initialScale={0.9} in={isSubmitted}>
+      <Flex
+        alignItems='center'
+        justifyContent='center'
+        direction='column'
+        w={{ base: '100', md: '800px' }}
+      >
+        <Text fontSize='2xl'>Wiadomosć wysłana</Text>
+
+        <Center>
+          <EmailIcon boxSize={20} />
+        </Center>
+      </Flex>
+    </ScaleFade>
   ) : (
     <form onSubmit={formik.handleSubmit}>
       <Flex
