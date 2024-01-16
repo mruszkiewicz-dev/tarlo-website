@@ -5,6 +5,7 @@ import {
   HStack,
   useColorModeValue,
   useColorMode,
+  Image,
 } from '@chakra-ui/react'
 import Link from 'next/link'
 import { Links } from '@/data/routes.js'
@@ -49,8 +50,17 @@ export const NavBar = () => {
       overflow='hidden'
       zIndex={99}
     >
-      <Flex h={16} alignItems={'center'} justifyContent={'center'}>
-        <Box>Logo</Box>
+      <Flex h={16} alignItems='center' justifyContent='center'>
+        <Box>
+          <Image
+            src='/logo.svg'
+            alt='logo'
+            width={50}
+            height={30}
+            color='red'
+            fill={'red'}
+          />
+        </Box>
         <HStack spacing={8} alignItems={'center'}>
           <HStack as={'nav'} spacing={8} display={{ base: 'none', md: 'flex' }}>
             {Links.map((item) => (

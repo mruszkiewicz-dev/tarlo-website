@@ -26,8 +26,8 @@ export const CardAlbum: React.FC<CardAlbumProps> = ({ name, id, desc }) => {
             alignItems='center'
             justifyContent='center'
           >
-            <Text fontSize={20}>{item.title}:</Text>
-            <Text fontSize={20} ml={1} color='red.600'>
+            <Text fontSize={18}>{item.title}:</Text>
+            <Text fontSize={18} ml={1} color='red.600'>
               {item.desc}
             </Text>
           </Flex>
