@@ -1,3 +1,6 @@
+'use client'
+
+import { useState } from 'react'
 import { useFormik } from 'formik'
 import {
   Input,
@@ -15,6 +18,8 @@ interface FormValues {
 }
 
 export const Form = () => {
+  const [isSubmitted, setIsSubmitted] = useState(false)
+
   const formik = useFormik({
     initialValues: {
       email: '',
@@ -44,10 +49,14 @@ export const Form = () => {
         method: 'POST',
         body: JSON.stringify({ ...values }),
       })
+        .then(() => setIsSubmitted(true))
+        .catch((err) => console.log(err))
     },
   })
 
-  return (
+  return isSubmitted ? (
+    <p>dd</p>
+  ) : (
     <form onSubmit={formik.handleSubmit}>
       <Flex
         alignItems='center'
