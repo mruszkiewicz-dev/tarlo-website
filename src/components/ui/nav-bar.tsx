@@ -1,6 +1,14 @@
-import { Box, Flex, HStack, useColorModeValue } from '@chakra-ui/react'
+import {
+  Box,
+  Button,
+  Flex,
+  HStack,
+  useColorModeValue,
+  useColorMode,
+} from '@chakra-ui/react'
 import Link from 'next/link'
 import { Links } from '@/data/routes.js'
+import { IconMoon, IconSun } from '@tabler/icons-react'
 
 interface Props {
   children: React.ReactNode
@@ -29,9 +37,11 @@ const NavLink = (props: Props) => {
 }
 
 export const NavBar = () => {
+  const { colorMode, toggleColorMode } = useColorMode()
+
   return (
     <Box
-      bg={useColorModeValue('gray.100', 'gray.900')}
+      bg={useColorModeValue('gray.200', 'gray.900')}
       px={4}
       top='0'
       position='fixed'
@@ -49,6 +59,18 @@ export const NavBar = () => {
               </NavLink>
             ))}
           </HStack>
+          <Button
+            my={4}
+            onClick={toggleColorMode}
+            bg={useColorModeValue('gray.700', 'gray.200')}
+            color={useColorModeValue('gray.200', 'gray.700')}
+            _hover={{
+              bg: useColorModeValue('gray.200', 'gray.700'),
+              color: useColorModeValue('gray.700', 'gray.200'),
+            }}
+          >
+            {colorMode === 'light' ? <IconMoon /> : <IconSun />}
+          </Button>
         </HStack>
       </Flex>
     </Box>

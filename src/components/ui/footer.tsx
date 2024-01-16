@@ -1,4 +1,4 @@
-import { Box, Flex, Text } from '@chakra-ui/react'
+import { Box, Flex, LightMode, Text } from '@chakra-ui/react'
 import Image from 'next/image'
 import Link from 'next/link'
 
@@ -9,7 +9,7 @@ export const Footer = () => {
         justifyContent='center'
         flexDirection='column'
         alignItems='center'
-        bgColor='gray'
+        bgColor='#000000'
         as='footer'
         w='100%'
         h={20}
@@ -17,7 +17,7 @@ export const Footer = () => {
         bottom='0'
       >
         <Box pb={2}>
-          <Text>POSŁUCHAJ SOBIE NA</Text>
+          <Text color='white'>POSŁUCHAJ SOBIE NA</Text>
         </Box>
         <Flex>
           <Box px={1}>

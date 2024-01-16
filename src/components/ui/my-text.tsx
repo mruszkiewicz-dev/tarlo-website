@@ -7,7 +7,7 @@ type TextProps = {
 
 export const MyText = ({ children }: TextProps) => {
   return (
-    <Center color='white'>
+    <Center>
       <Text
         pt={2}
         fontFamily={myFont.style.fontFamily}
