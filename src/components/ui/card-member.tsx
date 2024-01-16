@@ -1,3 +1,5 @@
+'use client'
+
 import { useState } from 'react'
 import { myFont } from '@/styles/fonts'
 import { Box, Center, Text, Image, Flex } from '@chakra-ui/react'

@@ -16,9 +16,9 @@ export default function About() {
           fontSize={{
             base: 'md',
             sm: 'xl',
-            lg: '2xl',
-            xl: '3xl',
-            '2xl': '3xl',
+            lg: 'xl',
+            xl: '2xl',
+            '2xl': '2xl',
           }}
         >
           Niektórych tematów nie można opowiedzieć w zwykły sposób - trzeba do
