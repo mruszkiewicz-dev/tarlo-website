@@ -1,6 +1,16 @@
 import Image from 'next/image'
 import { Box, Flex, Text } from '@chakra-ui/react'
 
+async function getData() {
+  const res = await fetch('/api/concerts')
+
+  if (!res.ok) {
+    throw new Error('Błąd')
+  }
+
+  return res.json()
+}
+
 export const PhotoGallery = () => {
   return (
     <>
