@@ -1,19 +1,16 @@
-import { Box, AbsoluteCenter } from '@chakra-ui/react'
+import { Box, AbsoluteCenter, Center } from '@chakra-ui/react'
 import { MyText } from '@/components/ui/my-text'
+import { Logo } from '@/components/ui/logo'
 
 export default function Home() {
   return (
-    <Box
-      backgroundImage="url('/background_home.jpg')"
-      backgroundPosition='top'
-      backgroundRepeat='no-repeat'
-      backgroundSize='100%'
-    >
-      <AbsoluteCenter>
-        <Box zIndex={1}>
-          <MyText>Oficjalna strona Zespołu</MyText>
-        </Box>
-      </AbsoluteCenter>
-    </Box>
+    <AbsoluteCenter>
+      <Box zIndex={1}>
+        <MyText>Oficjalna strona Zespołu</MyText>
+      </Box>
+      <Center>
+        <Logo h={300} w={400} />
+      </Center>
+    </AbsoluteCenter>
   )
 }
