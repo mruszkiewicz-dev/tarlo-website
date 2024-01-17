@@ -1,0 +1,16 @@
+import Image from 'next/image'
+import { Box, Flex, Text } from '@chakra-ui/react'
+
+export const PhotoGallery = () => {
+  return (
+    <>
+      <Flex
+        w={{ base: '100%', md: '50%' }}
+        align='center'
+        justifyContent='center'
+      >
+        <Image src='/band/bartek.jpg' alt='photo' width={20} height={20} />
+      </Flex>
+    </>
+  )
+}
