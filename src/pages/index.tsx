@@ -5,7 +5,7 @@ import { Logo } from '@/components/ui/logo'
 export default function Home() {
   return (
     <AbsoluteCenter>
-      <Box zIndex={1}>
+      <Box>
         <MyText>Oficjalna strona Zespołu</MyText>
       </Box>
       <Center>

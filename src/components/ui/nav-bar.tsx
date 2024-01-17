@@ -5,17 +5,36 @@ import {
   HStack,
   useColorModeValue,
   useColorMode,
-  Image,
+  Menu,
+  MenuList,
+  MenuItem,
+  MenuButton,
+  Center,
 } from '@chakra-ui/react'
 import Link from 'next/link'
 import { Links } from '@/data/routes.js'
-import { IconMoon, IconSun } from '@tabler/icons-react'
+import { IconMoon, IconSun, IconMenu2 } from '@tabler/icons-react'
 import { Logo } from './logo'
 
 interface Props {
   children: React.ReactNode
   href: string
 }
+
+const BurgerMenu = () => (
+  <Menu id='navbar-menu'>
+    <MenuButton>
+      <IconMenu2 />
+    </MenuButton>
+    <MenuList zIndex='99999'>
+      {Links.map((item) => (
+        <MenuItem href={item.link} key={item.link} zIndex='99999'>
+          {item.name}
+        </MenuItem>
+      ))}
+    </MenuList>
+  </Menu>
+)
 
 const NavLink = (props: Props) => {
   const { children, href } = props
@@ -46,7 +65,6 @@ export const NavBar = () => {
       bg={useColorModeValue('gray.200', 'gray.900')}
       px={2}
       top='0'
-      position='fixed'
       width='100%'
       overflow='hidden'
       zIndex={99}
@@ -57,6 +75,19 @@ export const NavBar = () => {
         justifyContent='space-between'
         mx={{ base: 4, md: 20 }}
       >
+        <Center
+          m={1}
+          w='48px'
+          rounded='md'
+          p={2}
+          display={{ base: 'flex', md: 'none' }}
+          _hover={{
+            bg: useColorModeValue('gray.200', 'gray.700'),
+            color: useColorModeValue('gray.700', 'gray.200'),
+          }}
+        >
+          <BurgerMenu />
+        </Center>
         <Box>
           <Logo w={80} h={80} />
         </Box>
