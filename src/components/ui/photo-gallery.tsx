@@ -1,10 +1,17 @@
-// PhotoGallery.tsx
+'use client'
 
-import { Flex } from '@chakra-ui/react'
+import { useEffect, useState } from 'react'
+import { Flex, Box, border } from '@chakra-ui/react'
+import Image from 'next/image'
+import dynamic from 'next/dynamic'
 
-// Function to fetch data
+interface Photo {
+  photo: string
+  name: string
+}
+
 async function getData() {
-  const res = await fetch('/api/concerts')
+  const res = await fetch('/api/photo')
 
   if (!res.ok) {
     throw new Error('Failed to fetch data')
@@ -13,22 +20,42 @@ async function getData() {
   return res.json()
 }
 
-interface PhotoGalleryProps {
-  data: any // Adjust the type based on the actual structure of your data
-}
+export const PhotoGallery = () => {
+  const [data, setData] = useState<Photo[]>([])
 
-const PhotoGallery: React.FC<PhotoGalleryProps> = ({ data }) => {
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const result = await getData()
+        setData(result)
+      } catch (error) {
+        console.error('Wystąpił błąd:')
+      }
+    }
+
+    fetchData()
+  }, [])
   console.log(data)
-
   return (
     <Flex
       w={{ base: '100%', md: '50%' }}
       align='center'
       justifyContent='center'
     >
-      {/* Display your content or images here */}
+      {data.map((item) => (
+        <Box m={2}>
+          <Image
+            src={item.photo}
+            width={200}
+            height={200}
+            alt={item.name}
+            style={{
+              objectFit: 'cover',
+              borderRadius: '8px',
+            }}
+          />
+        </Box>
+      ))}
     </Flex>
   )
 }
-
-export default PhotoGallery
