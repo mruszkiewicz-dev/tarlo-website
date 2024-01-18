@@ -41,15 +41,19 @@ export const PhotoGallery = () => {
       align='center'
       justifyContent='center'
       mb={10}
+      mx={2}
     >
-      <Grid templateColumns='repeat(4, 1fr)' gap={4}>
+      <Grid
+        templateColumns={{ base: 'repeat(1, 1fr)', md: 'repeat(4, 1fr)' }}
+        gap={4}
+      >
         {data.map((item) => {
           return (
             <GridItem>
               <Image
                 src={item.photo}
-                width={200}
-                height={200}
+                width={500}
+                height={500}
                 alt={item.name}
                 style={{
                   objectFit: 'cover',
