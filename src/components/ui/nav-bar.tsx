@@ -15,6 +15,7 @@ import Link from 'next/link'
 import { Links } from '@/data/routes.js'
 import { IconMoon, IconSun, IconMenu2 } from '@tabler/icons-react'
 import { Logo } from './logo'
+import { string } from 'yup'
 
 interface Props {
   children: React.ReactNode
@@ -28,7 +29,7 @@ const BurgerMenu = () => (
     </MenuButton>
     <MenuList zIndex='99999'>
       {Links.map((item) => (
-        <MenuItem href={item.link} key={item.link} zIndex='99999'>
+        <MenuItem as='a' href={item.link} key={item.link} zIndex='99999'>
           {item.name}
         </MenuItem>
       ))}
