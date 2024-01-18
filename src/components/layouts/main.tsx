@@ -13,10 +13,16 @@ const Main: React.FC<MainProps> = ({ children }) => {
     <div>
       <Head>
         <meta name='viewport' content='width=device-width, initial-scale=1' />
-        <meta name='description' content='Tarło - Oficjalna strona zespołu' />
-        <meta name='author' content='Michał Ruszkiewicz' />
-        <meta name='author' content='mruszkiewicz.dev' />
-        <title>Tarło</title>
+        <meta name='description' content='Tarło - Oficjalna Strona Zespołu' />
+        <meta name='author' content='Tarło' />
+        <meta name='author' content='tarlo' />
+        <link rel='apple-touch-icon' href='apple-touch-icon.png' />
+        <link rel='shortcut icon' href='/favicon.ico' type='image/x-icon' />
+        <meta property='og:site_name' content='Tarło' />
+        <meta name='og:title' content='Tarło' />
+        <meta property='og:type' content='website' />
+        <meta property='og:image' content='https://www.tarlo.pl/logo.svg' />
+        <title>Tarło - Oficjalna Strona Zespołu</title>
       </Head>
       <Flex direction='column' minH='100vh'>
         <NavBar />
