@@ -24,6 +24,10 @@ export const Links = [
     link: 'gallery',
   },
   {
+    name: 'Rider',
+    link: 'rider',
+  },
+  {
     name: 'Kontakt',
     link: 'contact',
   },

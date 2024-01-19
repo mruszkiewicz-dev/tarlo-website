@@ -92,7 +92,7 @@ export const NavBar = () => {
           <Logo w={80} h={80} />
         </Center>
         <HStack alignItems='center' display={{ base: 'none', md: 'flex' }}>
-          <HStack as={'nav'} spacing={8}>
+          <HStack as={'nav'} spacing={6}>
             {Links.map((item) => (
               <NavLink href={item.link} key={item.link}>
                 {item.name}
