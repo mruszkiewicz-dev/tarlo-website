@@ -15,7 +15,6 @@ import Link from 'next/link'
 import { Links } from '@/data/routes.js'
 import { IconMoon, IconSun, IconMenu2 } from '@tabler/icons-react'
 import { Logo } from './logo'
-import { string } from 'yup'
 
 interface Props {
   children: React.ReactNode
@@ -89,11 +88,11 @@ export const NavBar = () => {
         >
           <BurgerMenu />
         </Center>
-        <Box>
+        <Center>
           <Logo w={80} h={80} />
-        </Box>
-        <HStack alignItems='center'>
-          <HStack as={'nav'} spacing={8} display={{ base: 'none', md: 'flex' }}>
+        </Center>
+        <HStack alignItems='center' display={{ base: 'none', md: 'flex' }}>
+          <HStack as={'nav'} spacing={8}>
             {Links.map((item) => (
               <NavLink href={item.link} key={item.link}>
                 {item.name}
