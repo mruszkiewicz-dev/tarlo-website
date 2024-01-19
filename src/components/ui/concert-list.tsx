@@ -54,7 +54,7 @@ export const ConcertList = () => {
         <Thead>
           <Tr>
             <Th>Miejsce</Th>
-            <Th>Nazwa</Th>
+            <Th display={{ base: 'none', md: 'table-cell' }}>Nazwa</Th>
             <Th>Data</Th>
             <Th>Link</Th>
           </Tr>
@@ -62,9 +62,9 @@ export const ConcertList = () => {
 
         <Tbody>
           {data.map((item) => (
-            <Tr key={item.name}>
+            <Tr>
               <Td>{item.place}</Td>
-              <Td>{item.name}</Td>
+              <Td display={{ base: 'none', md: 'table-cell' }}>{item.name}</Td>
               <Td>{item.date}</Td>
               <Td>
                 <Link href={item.link} isExternal>
