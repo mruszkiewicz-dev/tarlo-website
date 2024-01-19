@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import { Flex, Grid, GridItem } from '@chakra-ui/react'
+import { Flex, Box, GridItem } from '@chakra-ui/react'
 import Image from 'next/image'
 
 interface Photo {
@@ -43,13 +43,15 @@ export const PhotoGallery = () => {
       mb={10}
       mx={2}
     >
-      <Grid
-        templateColumns={{ base: 'repeat(1, 1fr)', md: 'repeat(4, 1fr)' }}
-        gap={4}
+      <Box
+        padding={4}
+        w='100%'
+        mx='auto'
+        sx={{ columnCount: [1, 2, 3, 4], columnGap: '2px' }}
       >
         {data.map((item) => {
           return (
-            <GridItem>
+            <Box m={4}>
               <Image
                 src={item.photo}
                 width={500}
@@ -60,10 +62,10 @@ export const PhotoGallery = () => {
                   borderRadius: '8px',
                 }}
               />
-            </GridItem>
+            </Box>
           )
         })}
-      </Grid>
+      </Box>
     </Flex>
   )
 }

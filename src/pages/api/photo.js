@@ -11,7 +11,7 @@ export default function handler(req, res) {
     const objects = lines.map((line) => {
       if (line.trim() !== '') {
         try {
-          return { photo: `${line}.jpg`, name: `Tarło ${line.slice(18)}` }
+          return { photo: line, name: `Tarło ${line.slice(18)}` }
         } catch (parseError) {
           console.error('Błąd podczas parsowania linii:')
           return null
