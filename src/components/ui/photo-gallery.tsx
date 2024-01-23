@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import { Flex, Box, GridItem } from '@chakra-ui/react'
+import { Flex, Box } from '@chakra-ui/react'
 import Image from 'next/image'
 
 interface Photo {
@@ -34,7 +34,7 @@ export const PhotoGallery = () => {
 
     fetchData()
   }, [])
-  console.log(data)
+
   return (
     <Flex
       w={{ base: '100%', md: '80%' }}

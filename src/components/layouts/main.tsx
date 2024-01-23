@@ -26,7 +26,7 @@ const Main: React.FC<MainProps> = ({ children }) => {
       </Head>
       <Flex direction='column' minH='100vh'>
         <NavBar />
-        <Box mt={{ base: '2', md: '16' }} flex='1'>
+        <Box my={{ base: '2', md: '16' }} flex='1'>
           {children}
         </Box>
         <Spacer />
