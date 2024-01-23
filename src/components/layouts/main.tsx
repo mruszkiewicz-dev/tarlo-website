@@ -19,7 +19,7 @@ const Main: React.FC<MainProps> = ({ children }) => {
         <link rel='apple-touch-icon' href='apple-touch-icon.png' />
         <link rel='shortcut icon' href='/favicon.ico' type='image/x-icon' />
         <meta property='og:site_name' content='Tarło' />
-        <meta name='og:title' content='Tarło' />
+        <meta name='og:title' content='Tarło - Oficjalna Strona Zespołu' />
         <meta property='og:type' content='website' />
         <meta property='og:image' content='https://www.tarlo.pl/logo.svg' />
         <title>Tarło - Oficjalna Strona Zespołu</title>
