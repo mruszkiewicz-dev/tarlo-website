@@ -81,8 +81,9 @@ export const Form = () => {
         justifyContent='center'
         direction='column'
         w={{ base: '100', md: '500px' }}
+        my={2}
       >
-        <Text mt={4}>Napisz do nas</Text>
+        <Text mt={2}>Napisz do nas</Text>
 
         <FormControl mt='2' isInvalid={!!formik.errors.email}>
           <FormLabel textAlign='center' htmlFor='email'>

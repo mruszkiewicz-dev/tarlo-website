@@ -23,7 +23,7 @@ export default function Contact() {
           </Link>
         </Text>
       </Flex>
-      <Flex mt={2} align='center' justifyContent='center'>
+      <Flex align='center' justifyContent='center'>
         <Form />
       </Flex>
     </>
