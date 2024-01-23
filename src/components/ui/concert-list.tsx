@@ -9,6 +9,7 @@ import {
   Td,
   TableCaption,
   TableContainer,
+  Text,
 } from '@chakra-ui/react'
 import { Link } from '@chakra-ui/react'
 import { LinkIcon } from '@chakra-ui/icons'
@@ -50,30 +51,38 @@ export const ConcertList = () => {
   return (
     <TableContainer>
       <Table variant='simple' size='lg'>
-        <TableCaption>Infomację gdzie jeszcze zagramy wkrótce</TableCaption>
-        <Thead>
-          <Tr>
-            <Th>Miejsce</Th>
-            <Th display={{ base: 'none', md: 'table-cell' }}>Nazwa</Th>
-            <Th>Data</Th>
-            <Th>Link</Th>
-          </Tr>
-        </Thead>
+        {data[0]?.place !== '' ? (
+          <>
+            <TableCaption>Infomację gdzie jeszcze zagramy wkrótce</TableCaption>
+            <Thead>
+              <Tr>
+                <Th>Miejsce</Th>
+                <Th display={{ base: 'none', md: 'table-cell' }}>Nazwa</Th>
+                <Th>Data</Th>
+                <Th>Link</Th>
+              </Tr>
+            </Thead>
 
-        <Tbody>
-          {data.map((item) => (
-            <Tr>
-              <Td>{item.place}</Td>
-              <Td display={{ base: 'none', md: 'table-cell' }}>{item.name}</Td>
-              <Td>{item.date}</Td>
-              <Td>
-                <Link href={item.link} isExternal>
-                  <LinkIcon />
-                </Link>
-              </Td>
-            </Tr>
-          ))}
-        </Tbody>
+            <Tbody>
+              {data.map((item, index) => (
+                <Tr key={index}>
+                  <Td>{item.place}</Td>
+                  <Td display={{ base: 'none', md: 'table-cell' }}>
+                    {item.name}
+                  </Td>
+                  <Td>{item.date}</Td>
+                  <Td>
+                    <Link href={item.link} isExternal>
+                      <LinkIcon />
+                    </Link>
+                  </Td>
+                </Tr>
+              ))}
+            </Tbody>
+          </>
+        ) : (
+          <Text>Infomację gdzie zagramy wkrótce</Text>
+        )}
       </Table>
     </TableContainer>
   )
