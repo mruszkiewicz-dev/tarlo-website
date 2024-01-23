@@ -1,12 +1,12 @@
 import { MyText } from '@/components/ui/my-text'
-import { Box, Text, Flex } from '@chakra-ui/react'
+import { Box, Text, Container } from '@chakra-ui/react'
 
 export default function About() {
   return (
     <Box>
       <MyText>O nas</MyText>
-      <Flex
-        px={{ base: 20, xl: '200px', '2xl': '440px' }}
+      <Container
+        px={{ base: 8, md: 0 }}
         alignItems='center'
         justifyContent='center'
         minHeight='60vh'
@@ -35,7 +35,7 @@ export default function About() {
           Zespół powstał w 2016 roku temu, aktualnie koncertuje gdzie się tylko
           da.
         </Text>
-      </Flex>
+      </Container>
     </Box>
   )
 }
