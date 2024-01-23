@@ -1,4 +1,4 @@
-import { Box, Flex, Text, Divider, Center } from '@chakra-ui/react'
+import { Box, Flex, Text, Divider } from '@chakra-ui/react'
 import Image from 'next/image'
 import Link from 'next/link'
 

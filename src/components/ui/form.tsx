@@ -82,6 +82,8 @@ export const Form = () => {
         direction='column'
         w={{ base: '100', md: '500px' }}
       >
+        <Text mt={4}>Napisz do nas</Text>
+
         <FormControl mt='2' isInvalid={!!formik.errors.email}>
           <FormLabel textAlign='center' htmlFor='email'>
             Email
