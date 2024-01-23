@@ -22,7 +22,9 @@ export const Footer = () => {
         w={200}
       >
         <Box pb={2}>
-          <Text color='white'>POSŁUCHAJ SOBIE NA</Text>
+          <Text fontSize={{ base: 'sm', md: 'md' }} color='white'>
+            POSŁUCHAJ SOBIE NA
+          </Text>
         </Box>
         <Flex>
           <Box px={1}>
@@ -61,14 +63,16 @@ export const Footer = () => {
         justifyContent='center'
         flexDirection='column'
         alignItems='center'
-        h={20}
+        h={22}
         py={2}
         bottom='0'
         p={2}
         w={200}
       >
         <Box pb={2}>
-          <Text color='white'>ZNAJDZIESZ NAS</Text>
+          <Text fontSize={{ base: 'sm', md: 'md' }} color='white'>
+            ZNAJDZIESZ NAS
+          </Text>
         </Box>
         <Flex>
           <Box px={2}>
