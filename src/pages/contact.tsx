@@ -10,14 +10,14 @@ export default function Contact() {
     <>
       <MyText>Kontakt</MyText>
       <Flex
-        mt={{ base: 2, xl: 10 }}
+        mt={{ base: 2, xl: 4 }}
         align='center'
         justifyContent='center'
         direction='column'
       >
-        <Text>Telefon: 728 306 334</Text>
-        <Text>
-          Fb:
+        <Text p={2}>Telefon: 728 306 334</Text>
+        <Text p={2}>
+          Facebook:
           <Link href='https://www.facebook.com/tarlorockband/' target='_blank'>
             <LinkIcon />
           </Link>
