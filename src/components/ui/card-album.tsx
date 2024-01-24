@@ -1,38 +1,72 @@
-import Image from 'next/image'
-import { Box, Flex, Text } from '@chakra-ui/react'
+import {
+  Box,
+  Flex,
+  Text,
+  Card,
+  Heading,
+  CardHeader,
+  CardBody,
+  CardFooter,
+  Image,
+  Divider,
+  List,
+  ListItem,
+  Button,
+} from '@chakra-ui/react'
+import { CardAlbumSong } from './CardAlbumSong'
 
 interface DescItem {
   title: string
   desc: string
 }
 
+export interface SongsItem {
+  title: string
+  yt: string
+  spotify: string
+  itunes: string
+  tidal: string
+}
+
 interface CardAlbumProps {
   name: string
   id: string
   desc: DescItem[]
+  songs: SongsItem[]
 }
 
-export const CardAlbum: React.FC<CardAlbumProps> = ({ name, id, desc }) => {
+export const CardAlbum: React.FC<CardAlbumProps> = ({
+  name,
+  id,
+  desc,
+  songs,
+}) => {
   return (
-    <Box mx={10} my={2}>
-      <Flex alignItems='center' justifyContent='center' direction='column'>
-        <Text fontSize={30}>{name}</Text>
-        <Image src={`/albums/${id}.jpg`} width={290} height={290} alt={name} />
+    <Card m={8} align='center' maxW='md'>
+      <CardHeader>
+        <Heading size='md'>{name}</Heading>
+      </CardHeader>
+      <CardBody>
+        <Image src={`/albums/${id}.jpg`} alt={name} borderRadius='lg' mb={2} />
         {desc.map((item, index) => (
           <Flex
             key={index}
-            mt={1}
             direction={{ base: 'column', md: 'row' }}
             alignItems='center'
             justifyContent='center'
           >
-            <Text fontSize={18}>{item.title}:</Text>
-            <Text fontSize={18} ml={1} color='red.600'>
+            <Text fontSize='md'>{item.title}:</Text>
+            <Text fontSize='md' pl={1} color='red.600'>
               {item.desc}
             </Text>
           </Flex>
         ))}
-      </Flex>
-    </Box>
+      </CardBody>
+      <Divider width={60} />
+
+      <CardFooter>
+        <CardAlbumSong songs={songs} />
+      </CardFooter>
+    </Card>
   )
 }
