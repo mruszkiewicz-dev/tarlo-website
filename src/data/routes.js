@@ -16,11 +16,11 @@ export const Links = [
     link: 'concerts',
   },
   {
-    name: 'Rzuć Uchem',
-    link: 'music',
+    name: 'Albumy',
+    link: 'albums',
   },
   {
-    name: 'Rzuć Okiem',
+    name: 'Galeria',
     link: 'gallery',
   },
   {
