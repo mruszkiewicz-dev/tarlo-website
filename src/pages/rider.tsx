@@ -1,3 +1,5 @@
+import Head from 'next/head'
+
 import { MyText } from '@/components/ui/my-text'
 import {
   Button,
@@ -16,6 +18,19 @@ import {
 export default function Rider() {
   return (
     <>
+      <Head>
+        <title>Tarło - Rider</title>
+        <meta
+          name='description'
+          content='Sprawdź Rider zespołu Tarło. Zobacz informacje o sprzęcie dźwiękowym, systemie odsłuchowym i pobierz szczegółowy dokument w formacie PDF.'
+        />
+        <meta
+          name='keywords'
+          content='Tarło, Rider, sprzęt dźwiękowy, system odsłuchowy, dokument PDF'
+        />
+        <meta name='robots' content='index, follow' />
+        <link rel='canonical' href='https://www.tarlo.pl/rider' />
+      </Head>
       <MyText>Rider</MyText>
       <Flex mt={{ base: 2, xl: 1 }} align='top' justifyContent='center'>
         <Card maxW='sm' m={{ base: '4', md: '0' }}>
