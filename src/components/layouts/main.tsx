@@ -19,16 +19,19 @@ const Main: React.FC<MainProps> = ({ children }) => {
           content='Oficjalna strona zespołu Tarło. Znajdź informacje o naszych koncertach, muzyce i najnowszych wydawnictwach.'
         />
         <meta name='author' content='Tarło' />
-        <link rel='apple-touch-icon' href='/apple-touch-icon.png' />
-        <link rel='shortcut icon' href='/favicon.ico' type='image/x-icon' />
+        <link rel='apple-touch-icon' href='//favicon.ico' />
+        <link rel='icon' href='/favicon.ico' type='image/x-icon' />
         <meta property='og:site_name' content='Tarło' />
         <meta property='og:title' content='Tarło - Oficjalna Strona Zespołu' />
         <meta property='og:type' content='website' />
-        <meta property='og:image' content='https://www.tarlo.pl/logo.svg' />
+        <meta
+          property='og:image'
+          content='https://www.tarlo.pl/logo_black.png'
+        />
         <title>Tarło - Oficjalna Strona Zespołu</title>
         <meta
           name='keywords'
-          content='Tarło, zespół muzyczny, koncerty, muzyka, nowości muzyczne'
+          content='Tarło, Tarlo, zespół muzyczny, koncerty, muzyka, nowości muzyczne'
         />
         <meta name='robots' content='index, follow' />
         <meta name='googlebot' content='index, follow' />
