@@ -89,7 +89,9 @@ export const NavBar = () => {
           <BurgerMenu />
         </Center>
         <Center>
-          <Logo w={80} h={80} />
+          <Link href='/'>
+            <Logo w={80} h={80} />
+          </Link>
         </Center>
         <HStack alignItems='center' display={{ base: 'none', md: 'flex' }}>
           <HStack as={'nav'} spacing={6}>
