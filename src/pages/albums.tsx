@@ -1,5 +1,5 @@
-import { CardAlbum } from '@/components/ui/card-album'
-import { MyText } from '@/components/ui/my-text'
+import { CardAlbum } from '@/components/ui/CardAlbum'
+import { MyText } from '@/components/ui/MyText'
 import { albums } from '@/data/data'
 import { Flex } from '@chakra-ui/react'
 import Head from 'next/head'

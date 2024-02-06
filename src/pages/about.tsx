@@ -1,4 +1,4 @@
-import { MyText } from '@/components/ui/my-text'
+import { MyText } from '@/components/ui/MyText'
 import { Box, Text, Container } from '@chakra-ui/react'
 import Head from 'next/head'
 

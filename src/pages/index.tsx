@@ -1,6 +1,6 @@
-import { Box, AbsoluteCenter, Center } from '@chakra-ui/react'
-import { MyText } from '@/components/ui/my-text'
-import { Logo } from '@/components/ui/logo'
+import { AbsoluteCenter, Center } from '@chakra-ui/react'
+import { MyText } from '@/components/ui/MyText'
+import { Logo } from '@/components/ui/Logo'
 import Head from 'next/head'
 
 export default function Home() {

@@ -14,7 +14,7 @@ import {
   Link,
   Center,
 } from '@chakra-ui/react'
-import { SongsItem } from './card-album'
+import { SongsItem } from './CardAlbum'
 import {
   IconBrandTidal,
   IconBrandSpotify,

@@ -1,9 +1,16 @@
-import { MyText } from '@/components/ui/my-text'
-import { Flex } from '@chakra-ui/react'
-import { ConcertList } from '@/components/ui/concert-list'
-import { Suspense } from 'react'
-import Head from 'next/head'
+'use client'
 
+import { MyText } from '@/components/ui/MyText'
+import { Flex } from '@chakra-ui/react'
+import Head from 'next/head'
+import dynamic from 'next/dynamic'
+
+const ConcertListDynamic = dynamic(
+  () => import('@/components/ui/ConcertList').then((mod) => mod.ConcertList),
+  {
+    loading: () => <p>Loading...</p>,
+  },
+)
 export default function Concerts() {
   return (
     <>
@@ -22,9 +29,7 @@ export default function Concerts() {
       </Head>
       <MyText>Koncerty</MyText>
       <Flex mt={{ base: 2, xl: 10 }} align='center' justifyContent='center'>
-        <Suspense fallback={<p>Loading feed...</p>}>
-          <ConcertList />
-        </Suspense>
+        <ConcertListDynamic />
       </Flex>
     </>
   )

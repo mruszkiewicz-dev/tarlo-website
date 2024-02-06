@@ -1,8 +1,6 @@
-'use client'
-
 import { useState } from 'react'
 import { myFont } from '@/styles/fonts'
-import { Box, Center, Text, Image, Flex } from '@chakra-ui/react'
+import { Box, Center, Text, Image, Flex, Spinner } from '@chakra-ui/react'
 
 interface CardMemberProps {
   name: string
@@ -12,6 +10,7 @@ interface CardMemberProps {
 
 export const CardMember: React.FC<CardMemberProps> = ({ name, desc, foto }) => {
   const [active, setActive] = useState(false)
+  const [isLoading, setIsLoading] = useState(true) // Stan informujący o ładowaniu obrazka
 
   return (
     <>
@@ -23,6 +22,7 @@ export const CardMember: React.FC<CardMemberProps> = ({ name, desc, foto }) => {
       >
         <Center color='white'>
           <Flex alignItems='center' justifyContent='center'>
+            {isLoading && <Spinner size='lg' />}
             <Image
               src={`/band/${foto}.jpg`}
               boxSize='300px'
@@ -30,6 +30,7 @@ export const CardMember: React.FC<CardMemberProps> = ({ name, desc, foto }) => {
               style={{ filter: active ? 'blur(5px)' : 'none' }}
               border='solid yinmn_blue.200'
               borderRadius='5px'
+              onLoad={() => setIsLoading(false)}
             />
             {active && (
               <Box

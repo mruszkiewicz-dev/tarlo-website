@@ -1,6 +1,6 @@
-import { MyText } from '@/components/ui/my-text'
+import { MyText } from '@/components/ui/MyText'
 import { Flex } from '@chakra-ui/react'
-import { CardMember } from '@/components/ui/card-member'
+import { CardMember } from '@/components/ui/CardMember'
 import { band } from '@/data/data'
 import Head from 'next/head'
 

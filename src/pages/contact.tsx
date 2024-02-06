@@ -1,6 +1,6 @@
-import { MyText } from '@/components/ui/my-text'
+import { MyText } from '@/components/ui/MyText'
 import { Flex, Text, Link } from '@chakra-ui/react'
-import { Form } from '@/components/ui/form'
+import { Form } from '@/components/ui/Form'
 import { LinkIcon } from '@chakra-ui/icons'
 import Head from 'next/head'
 

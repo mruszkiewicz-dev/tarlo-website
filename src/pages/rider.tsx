@@ -1,19 +1,15 @@
 import Head from 'next/head'
 
-import { MyText } from '@/components/ui/my-text'
+import { MyText } from '@/components/ui/MyText'
 import {
   Button,
   Flex,
   Card,
   CardBody,
   Stack,
-  Heading,
   Text,
-  CardFooter,
-  ButtonGroup,
   Image,
   Divider,
-  Center,
 } from '@chakra-ui/react'
 export default function Rider() {
   return (

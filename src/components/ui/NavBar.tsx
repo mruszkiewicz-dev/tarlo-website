@@ -14,7 +14,7 @@ import {
 import Link from 'next/link'
 import { Links } from '@/data/routes.js'
 import { IconMoon, IconSun, IconMenu2 } from '@tabler/icons-react'
-import { Logo } from './logo'
+import { Logo } from './Logo'
 
 interface Props {
   children: React.ReactNode

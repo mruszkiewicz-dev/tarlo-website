@@ -1,7 +1,15 @@
-import { PhotoGallery } from '@/components/ui/photo-gallery'
-import { MyText } from '@/components/ui/my-text'
+import { PhotoGallery } from '@/components/ui/PhotoGallery'
+import { MyText } from '@/components/ui/MyText'
 import { Flex } from '@chakra-ui/react'
 import Head from 'next/head'
+import dynamic from 'next/dynamic'
+
+const PhotoGalleryDynamic = dynamic(
+  () => import('@/components/ui/PhotoGallery').then((mod) => mod.PhotoGallery),
+  {
+    loading: () => <p>Loading...</p>,
+  },
+)
 
 export default function Gallery() {
   return (
@@ -33,7 +41,7 @@ export default function Gallery() {
       </Head>
       <MyText>Galeria</MyText>
       <Flex mt={{ base: 2, xl: 10 }} align='center' justifyContent='center'>
-        <PhotoGallery />
+        <PhotoGalleryDynamic />
       </Flex>
     </>
   )
