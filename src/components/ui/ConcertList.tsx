@@ -93,7 +93,7 @@ export const ConcertList = () => {
                   </Tbody>
                 </>
               ) : (
-                <Text>Wkrótce podamy infomację gdzie zagramy wkrótce</Text>
+                <Text>Wkrótce podamy infomację gdzie zagramy!</Text>
               )}
             </Fade>
           </Table>
