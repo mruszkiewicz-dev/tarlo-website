@@ -103,4 +103,46 @@ export const albums = [
       },
     ],
   },
+  {
+    id: 'perlowe',
+    type: 'ep',
+    name: 'Perłowe Strzępy',
+    desc: [
+      { title: 'Produkcja muzyczna', desc: 'Maciek Gładysz' },
+      { title: 'Mix', desc: 'Maciek Gładysz' },
+      { title: 'Mastering', desc: 'Magdalena Piotrowska (Plewa)' },
+      { title: 'Realizacja nagrań perkusji', desc: 'Łukasz Błasiński' },
+      { title: 'Realizacja nagrań gitar i vocalu', desc: 'Maciek Gładysz' },
+    ],
+    songs: [
+      {
+        title: 'Polityk Zepsuty',
+        yt: 'null',
+        spotify: '3NzVHKjJVoYBXfwsouialQ',
+        itunes: 'ławka-szczęścia/1651376187?i=1651376188',
+        tidal: '256341965',
+      },
+      {
+        title: 'Perłowe Strzępy',
+        yt: 'WxnFfl16hak',
+        spotify: '13aQfBO86fVQKucECS0obv',
+        itunes: 'wyznanie-pantoflarza/1651376187?i=1651376189',
+        tidal: '256341966',
+      },
+      {
+        title: 'Przyjaciel',
+        yt: 'hbkt0wUUYNA',
+        spotify: '1D1WeykOff1lV1D1T26iAh',
+        itunes: 'spacer-po-faje/1651376187?i=1651376190',
+        tidal: '256341967',
+      },
+      {
+        title: 'Za Dużo',
+        yt: 'KrWitR1Uz-w',
+        spotify: '12IT0CSDZhP9gf5BKvXFsK',
+        itunes: 'spacer-po-faje/1651376187?i=1651376190',
+        tidal: '256341967',
+      },
+    ],
+  },
 ]

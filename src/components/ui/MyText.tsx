@@ -12,7 +12,7 @@ export const MyText = ({ children }: TextProps) => {
         pt={0}
         mb={{ base: 0, md: 8 }}
         fontFamily={myFont.style.fontFamily}
-        fontSize={{ base: '6xl', md: '7xl' }}
+        fontSize={{ base: '5xl', md: '6xl' }}
         align='center'
       >
         {children}

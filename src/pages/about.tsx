@@ -20,7 +20,7 @@ export default function About() {
       </Head>
       <MyText>O nas</MyText>
       <Container
-        px={{ base: 8, md: 0 }}
+        px={{ base: 5, md: 0 }}
         alignItems='center'
         justifyContent='center'
         minHeight='60vh'

@@ -22,7 +22,7 @@ export default function Albums() {
       </Head>
       <MyText>Albumy</MyText>
       <Flex
-        mt={{ base: 2, xl: 1 }}
+        mt={1}
         align='top'
         justifyContent='center'
         flexDirection={{ base: 'column', xl: 'row' }}
