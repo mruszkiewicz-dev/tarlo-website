@@ -1,5 +1,5 @@
 import { MyText } from '@/components/ui/MyText'
-import { Box, Text, Container } from '@chakra-ui/react'
+import { Box, Text, Container, Stack } from '@chakra-ui/react'
 import Head from 'next/head'
 
 export default function About() {
@@ -20,11 +20,12 @@ export default function About() {
       </Head>
       <MyText>O nas</MyText>
       <Container
-        px={{ base: 5, md: 0 }}
-        alignItems='center'
-        justifyContent='center'
-        minHeight='60vh'
+         maxW="container.md"
+        px={{ base: 4, md: 0 }}
+        minH="60vh"
       >
+                <Stack spacing={6} textAlign="center">
+
         <Text
           align='center'
           fontSize={{
@@ -49,6 +50,7 @@ export default function About() {
           Zespół powstał w 2016 roku temu, aktualnie koncertuje gdzie się tylko
           da.
         </Text>
+        </Stack>
       </Container>
     </Box>
   )
