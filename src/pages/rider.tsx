@@ -1,10 +1,47 @@
-import NextLink from 'next/link'
+import type { GetServerSideProps } from 'next'
 import { SeoHead } from '@/components/seo/SeoHead'
 import { MyText } from '@/components/ui/MyText'
 import { Button, Flex, Card, CardBody, Stack, Text, Divider } from '@chakra-ui/react'
 import Image from 'next/image'
+import { getRiderPdfInfo } from '@/lib/rider'
 
-export default function Rider() {
+type RiderProps = {
+  hasRiderFile: boolean
+  riderUpdatedAt: string | null
+  riderSource: 'configured' | 'public' | 'drive' | 'none'
+}
+
+export const getServerSideProps: GetServerSideProps<RiderProps> = async () => {
+  const rider = await getRiderPdfInfo()
+
+  return {
+    props: {
+      hasRiderFile: Boolean(rider.absolutePath || rider.driveFileId),
+      riderUpdatedAt: rider.updatedAt,
+      riderSource: rider.source,
+    },
+  }
+}
+
+export default function Rider({ hasRiderFile, riderUpdatedAt, riderSource }: RiderProps) {
+  const updatedAtLabel = riderUpdatedAt
+    ? new Intl.DateTimeFormat('pl-PL', {
+        day: '2-digit',
+        month: '2-digit',
+        year: 'numeric',
+        hour: '2-digit',
+        minute: '2-digit',
+      }).format(new Date(riderUpdatedAt))
+    : null
+  let sourceLabel = 'brak pliku'
+  if (riderSource === 'drive') {
+    sourceLabel = 'folder Google Drive (auto)'
+  } else if (riderSource === 'configured') {
+    sourceLabel = 'katalog/plik z RIDER_PDF_PATH'
+  } else if (riderSource === 'public') {
+    sourceLabel = 'public/'
+  }
+
   return (
     <>
       <SeoHead
@@ -30,12 +67,27 @@ export default function Rider() {
                 Zespol dysponuje wlasnym rackiem dzwiekowym oraz kompletnym systemem odsluchowym. Prosba o
                 uwzglednienie tego podczas przygotowan technicznych.
               </Text>
+              <Text fontSize='sm' color='gray.500'>
+                Zrodlo pliku: {sourceLabel}
+              </Text>
+              {updatedAtLabel ? (
+                <Text fontSize='sm' color='gray.500'>
+                  Ostatnia aktualizacja pliku: {updatedAtLabel}
+                </Text>
+              ) : null}
             </Stack>
           </CardBody>
           <Divider />
           <Flex direction='column' justifyContent='center' alignItems='center' m={2} p={2}>
-            <Button as={NextLink} href='/Tarło-rider.pdf' target='_blank' rel='noopener noreferrer' variant='solid'>
-              Pobierz PDF
+            <Button
+              as='a'
+              href='/api/rider-pdf'
+              target='_blank'
+              rel='noopener noreferrer'
+              variant='solid'
+              isDisabled={!hasRiderFile}
+            >
+              {hasRiderFile ? 'Pobierz PDF' : 'Brak pliku PDF'}
             </Button>
           </Flex>
         </Card>
@@ -43,4 +95,3 @@ export default function Rider() {
     </>
   )
 }
-

@@ -1,29 +1,19 @@
-import fs from 'fs'
-import path from 'path'
 import type { GetStaticProps } from 'next'
 import { SeoHead } from '@/components/seo/SeoHead'
 import { MyText } from '@/components/ui/MyText'
 import { Box, Link, Table, TableContainer, Tbody, Td, Text, Th, Thead, Tr } from '@chakra-ui/react'
-
-type Concert = {
-  place: string
-  name: string
-  date: string
-  link: string
-}
+import { Concert, getConcertsData } from '@/lib/concerts'
 
 type ConcertsProps = {
   concerts: Concert[]
 }
 
 export const getStaticProps: GetStaticProps<ConcertsProps> = async () => {
-  const filePath = path.join(process.cwd(), 'public', 'concerts.json')
-  const file = fs.readFileSync(filePath, 'utf-8')
-  const concerts = JSON.parse(file) as Concert[]
+  const concerts = await getConcertsData()
 
   return {
     props: { concerts },
-    revalidate: 60 * 60,
+    revalidate: 60 * 15,
   }
 }
 
@@ -37,7 +27,7 @@ export default function Concerts({ concerts }: ConcertsProps) {
           '@context': 'https://schema.org',
           '@type': 'MusicEvent',
           name: item.name || `Koncert Tarlo - ${item.place}`,
-          startDate: item.date,
+          startDate: item.dateISO || item.date,
           location: {
             '@type': 'Place',
             name: item.place,
@@ -99,4 +89,3 @@ export default function Concerts({ concerts }: ConcertsProps) {
     </>
   )
 }
-
