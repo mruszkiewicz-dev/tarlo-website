@@ -16,7 +16,7 @@ export const PhotoGallery = ({ data }: PhotoGalleryProps) => {
     <Flex w={{ base: '100%', md: '90%' }} align='center' justifyContent='center' mb={10} mx={2}>
       <Box padding={4} w='100%' mx='auto' sx={{ columnCount: [1, 2, 3, 4], columnGap: '12px' }}>
         {data.map((item, index) => (
-          <Box key={`${item.photo}-${index}`} mb={4} breakInside='avoid'>
+          <Box key={`${item.photo}-${index}`} mb={4} sx={{ breakInside: 'avoid' }}>
             <ImageLoader src={item.photo} alt={item.name} />
           </Box>
         ))}
@@ -49,4 +49,3 @@ const ImageLoader = ({ src, alt }: { src: string; alt: string }) => {
     </>
   )
 }
-
