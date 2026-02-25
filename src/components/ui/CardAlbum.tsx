@@ -1,5 +1,4 @@
 import {
-  Box,
   Flex,
   Text,
   Card,
@@ -7,13 +6,11 @@ import {
   CardHeader,
   CardBody,
   CardFooter,
-  Image,
   Divider,
-  List,
-  ListItem,
-  Button,
+  Box,
 } from '@chakra-ui/react'
 import { CardAlbumSong } from './CardAlbumSong'
+import Image from 'next/image'
 
 interface DescItem {
   title: string
@@ -47,7 +44,16 @@ export const CardAlbum: React.FC<CardAlbumProps> = ({
         <Heading size='md'>{name}</Heading>
       </CardHeader>
       <CardBody>
-        <Image src={`/albums/${id}.jpg`} alt={name} borderRadius='lg' mb={2} />
+        <Box borderRadius='lg' overflow='hidden' mb={2}>
+          <Image
+            src={`/albums/${id}.jpg`}
+            alt={`${name} okladka albumu`}
+            width={500}
+            height={500}
+            sizes='(max-width: 768px) 100vw, 500px'
+            style={{ width: '100%', height: 'auto' }}
+          />
+        </Box>
         {desc.map((item, index) => (
           <Flex
             key={index}

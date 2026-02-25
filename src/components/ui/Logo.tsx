@@ -10,12 +10,7 @@ export const Logo = ({ w, h }: LogoP) => {
   const imageFilter = useColorModeValue('invert(1)', 'none')
 
   return (
-    <Image
-      src='/logo.svg'
-      alt='logo tarło'
-      width={w}
-      height={h}
-      style={{ filter: imageFilter }}
-    />
+    <Image src='/logo.svg' alt='Logo zespolu Tarlo' width={w} height={h} style={{ filter: imageFilter }} />
   )
 }
+

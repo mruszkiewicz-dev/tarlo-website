@@ -25,8 +25,8 @@ export const CardMember: React.FC<CardMemberProps> = ({ name, desc, foto }) => {
             {isLoading && <Spinner size='lg' />}
             <Image
               src={`/band/${foto}.jpg`}
+              alt={`${name} - ${desc}`}
               boxSize='300px'
-              alt={foto}
               style={{ filter: active ? 'blur(5px)' : 'none' }}
               border='solid yinmn_blue.200'
               borderRadius='5px'

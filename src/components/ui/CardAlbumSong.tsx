@@ -1,19 +1,4 @@
-import {
-  Box,
-  Flex,
-  Text,
-  Card,
-  Heading,
-  CardHeader,
-  CardBody,
-  CardFooter,
-  Image,
-  List,
-  SimpleGrid,
-  Grid,
-  Link,
-  Center,
-} from '@chakra-ui/react'
+import { Box, List, SimpleGrid, Link } from '@chakra-ui/react'
 import { SongsItem } from './CardAlbum'
 import {
   IconBrandTidal,
@@ -40,27 +25,37 @@ export const CardAlbumSong: React.FC<CardAlbumSongProps> = ({ songs }) => {
         >
           <Box>{item.title}</Box>
           <Box display='flex' justifyContent='space-around' alignItems='center'>
-            <Link
-              href={`https://www.youtube.com/watch?v=${item.yt}`}
-              target='_blank'
-            >
-              <IconBrandYoutube />
-            </Link>
+            {item.yt && item.yt !== 'null' ? (
+              <Link
+                href={`https://www.youtube.com/watch?v=${item.yt}`}
+                target='_blank'
+                rel='noopener noreferrer'
+                aria-label={`YouTube - ${item.title}`}
+              >
+                <IconBrandYoutube />
+              </Link>
+            ) : null}
             <Link
               href={`https://music.apple.com/pl/album/${item.itunes}`}
               target='_blank'
+              rel='noopener noreferrer'
+              aria-label={`Apple Music - ${item.title}`}
             >
               <IconBrandApple />
             </Link>
             <Link
               href={`https://open.spotify.com/track/${item.spotify}`}
               target='_blank'
+              rel='noopener noreferrer'
+              aria-label={`Spotify - ${item.title}`}
             >
               <IconBrandSpotify />
             </Link>
             <Link
               href={`https://tidal.com/browse/track/${item.tidal}`}
               target='_blank'
+              rel='noopener noreferrer'
+              aria-label={`Tidal - ${item.title}`}
             >
               <IconBrandTidal />
             </Link>

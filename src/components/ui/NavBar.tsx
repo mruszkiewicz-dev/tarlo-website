@@ -9,7 +9,9 @@ import {
   MenuList,
   MenuItem,
   MenuButton,
+  IconButton,
   Center,
+  Portal,
 } from '@chakra-ui/react'
 import Link from 'next/link'
 import { Links } from '@/data/routes.js'
@@ -22,17 +24,23 @@ interface Props {
 }
 
 const BurgerMenu = () => (
-  <Menu id='navbar-menu'>
-    <MenuButton>
-      <IconMenu2 />
-    </MenuButton>
-    <MenuList zIndex='99999'>
-      {Links.map((item) => (
-        <MenuItem as='a' href={item.link} key={item.link} zIndex='99999'>
-          {item.name}
-        </MenuItem>
-      ))}
-    </MenuList>
+  <Menu id='navbar-menu' isLazy placement='bottom-start'>
+    <MenuButton
+      as={IconButton}
+      aria-label='Otworz menu'
+      icon={<IconMenu2 size={20} />}
+      variant='ghost'
+      size='md'
+    />
+    <Portal>
+      <MenuList zIndex={1800} minW='180px'>
+        {Links.map((item) => (
+          <MenuItem as='a' href={item.link} key={item.link}>
+            {item.name}
+          </MenuItem>
+        ))}
+      </MenuList>
+    </Portal>
   </Menu>
 )
 
@@ -59,15 +67,22 @@ const NavLink = (props: Props) => {
 
 export const NavBar = () => {
   const { colorMode, toggleColorMode } = useColorMode()
+  const navBg = useColorModeValue('rgba(248, 250, 252, 0.9)', 'rgba(15, 16, 20, 0.9)')
+  const borderColor = useColorModeValue('gray.300', 'whiteAlpha.300')
 
   return (
     <Box
-      bg={useColorModeValue('gray.200', 'gray.900')}
+      as='header'
+      bg={navBg}
+      backdropFilter='saturate(180%) blur(8px)'
+      borderBottom='1px solid'
+      borderColor={borderColor}
       px={2}
+      position='sticky'
       top='0'
       width='100%'
-      overflow='hidden'
-      zIndex={99}
+      overflow='visible'
+      zIndex={1000}
     >
       <Flex
         h={16}
@@ -104,6 +119,7 @@ export const NavBar = () => {
         </HStack>
         <Button
           onClick={toggleColorMode}
+          aria-label='Przelacz motyw'
           bg={useColorModeValue('gray.700', 'gray.200')}
           color={useColorModeValue('gray.200', 'gray.700')}
           _hover={{

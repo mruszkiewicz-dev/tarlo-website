@@ -1,48 +1,48 @@
-import { PhotoGallery } from '@/components/ui/PhotoGallery'
+import fs from 'fs'
+import path from 'path'
+import type { GetStaticProps } from 'next'
+import { PhotoGallery, PhotoItem } from '@/components/ui/PhotoGallery'
 import { MyText } from '@/components/ui/MyText'
 import { Flex } from '@chakra-ui/react'
-import Head from 'next/head'
-import dynamic from 'next/dynamic'
+import { SeoHead } from '@/components/seo/SeoHead'
 
-const PhotoGalleryDynamic = dynamic(
-  () => import('@/components/ui/PhotoGallery').then((mod) => mod.PhotoGallery),
-  {
-    loading: () => <p>Loading...</p>,
-  },
-)
+type GalleryProps = {
+  photos: PhotoItem[]
+}
 
-export default function Gallery() {
+export const getStaticProps: GetStaticProps<GalleryProps> = async () => {
+  const filePath = path.join(process.cwd(), 'public', 'photo.txt')
+  const file = fs.readFileSync(filePath, 'utf-8')
+  const photos = file
+    .split('\n')
+    .map((line) => line.trim())
+    .filter(Boolean)
+    .map((line, index) => ({
+      photo: line,
+      name: `Tarlo koncert ${index + 1}`,
+    }))
+
+  return {
+    props: { photos },
+    revalidate: 60 * 60 * 6,
+  }
+}
+
+export default function Gallery({ photos }: GalleryProps) {
   return (
     <>
-      <Head>
-        <title>Tarło - Galeria Zdjęć Koncertowych</title>
-        <meta
-          name='description'
-          content='Przeglądaj naszą galerię zdjęć z niezapomnianych koncertów zespołu Tarło. Zobacz emocje i atmosferę naszych występów.'
-        />
-        <meta
-          name='keywords'
-          content='Tarło, galeria koncertowa, zdjęcia koncertowe, atmosfera koncertu, emocje, muzyka na żywo'
-        />
-        <meta name='robots' content='index, follow' />
-        <meta
-          property='og:title'
-          content='Tarło - Galeria Zdjęć Koncertowych'
-        />
-        <meta
-          property='og:description'
-          content='Przeglądaj naszą galerię zdjęć z niezapomnianych koncertów zespołu Tarło. Zobacz emocje i atmosferę naszych występów.'
-        />
-        <meta
-          property='og:image'
-          content='https://www.tarlo.pl/galeria-cover.jpg'
-        />
-        <link rel='canonical' href='https://www.tarlo.pl/galeria' />
-      </Head>
+      <SeoHead
+        title='Tarlo - Galeria koncertowa'
+        description='Galeria zdjec koncertowych zespolu Tarlo. Zobacz kadry z naszych wystepow na zywo.'
+        path='/gallery'
+        keywords='Tarlo galeria, zdjecia koncertowe, koncerty rock'
+        image='https://www.tarlo.pl/logo_black.png'
+      />
       <MyText>Galeria</MyText>
       <Flex mt={{ base: 2, xl: 10 }} align='center' justifyContent='center'>
-        <PhotoGalleryDynamic />
+        <PhotoGallery data={photos} />
       </Flex>
     </>
   )
 }
+

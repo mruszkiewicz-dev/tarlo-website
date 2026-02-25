@@ -1,42 +1,21 @@
+import { SeoHead } from '@/components/seo/SeoHead'
 import { MyText } from '@/components/ui/MyText'
-import { Box, Text, Container, Stack } from '@chakra-ui/react'
-import Head from 'next/head'
+import { Box, Container, Stack, Text } from '@chakra-ui/react'
 
 export default function About() {
   return (
     <Box>
-      <Head>
-        <title>Tarło - Zespół Muzyczny - O Nas</title>
-        <meta
-          name='description'
-          content='Zespół TARŁO - Pięciu rockowo nastawionych do świata i ludzi instrumentalistów, z których jeden śpiewa. Poznaj historię zespołu, pasję do muzyki i wspólne licealne korzenie.'
-        />
-        <meta
-          name='keywords'
-          content='Tarło, zespół muzyczny, historia zespołu, muzyka rockowa, pasja do muzyki'
-        />
-        <meta name='robots' content='index, follow' />
-        <link rel='canonical' href='https://www.tarlo.pl/o-nas' />
-      </Head>
+      <SeoHead
+        title='Tarlo - O nas'
+        description='Poznaj zespol Tarlo, jego historie i brzmienie. Sprawdz jak powstaly nasze utwory i gdzie gramy.'
+        path='/about'
+        keywords='Tarlo, o nas, historia zespolu, rock'
+      />
       <MyText>O nas</MyText>
-      <Container
-         maxW="container.md"
-        px={{ base: 4, md: 0 }}
-        minH="60vh"
-      >
-                <Stack spacing={6} textAlign="center">
-
-        <Text
-          align='center'
-          fontSize={{
-            base: 'md',
-            sm: 'xl',
-            lg: 'xl',
-            xl: '2xl',
-            '2xl': '2xl',
-          }}
-        >
-          Niektórych tematów nie można opowiedzieć w zwykły sposób - trzeba do
+      <Container maxW='container.md' px={{ base: 4, md: 0 }} minH='60vh'>
+        <Stack spacing={6} textAlign='center'>
+          <Text fontSize={{ base: 'md', sm: 'xl', lg: 'xl', xl: '2xl', '2xl': '2xl' }}>
+                Niektórych tematów nie można opowiedzieć w zwykły sposób - trzeba do
           tego użyć gitary, basu i perkusji i dopiero wtedy można wykrzyczeć do
           mikrofonu słowa!!! Zespół TARŁO to pięciu rockowo nastawionych do
           świata i ludzi instrumentalistów, z których jeden śpiewa. Część z nich
@@ -49,9 +28,11 @@ export default function About() {
           dzieckiem i trzeba było poczekać aż dorośnie i zacznie z nami grać!!!
           Zespół powstał w 2016 roku temu, aktualnie koncertuje gdzie się tylko
           da.
-        </Text>
+          </Text>
+
         </Stack>
       </Container>
     </Box>
   )
 }
+

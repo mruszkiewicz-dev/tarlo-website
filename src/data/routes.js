@@ -5,30 +5,31 @@ export const Links = [
   },
   {
     name: 'O nas',
-    link: 'about',
+    link: '/about',
   },
   {
-    name: 'Zespół',
-    link: 'crew',
+    name: 'Zespol',
+    link: '/crew',
   },
   {
     name: 'Koncerty',
-    link: 'concerts',
+    link: '/concerts',
   },
   {
     name: 'Albumy',
-    link: 'albums',
+    link: '/albums',
   },
   {
     name: 'Galeria',
-    link: 'gallery',
+    link: '/gallery',
   },
   {
     name: 'Rider',
-    link: 'rider',
+    link: '/rider',
   },
   {
     name: 'Kontakt',
-    link: 'contact',
+    link: '/contact',
   },
 ]
+

@@ -1,66 +1,41 @@
-import Head from 'next/head'
-
+import NextLink from 'next/link'
+import { SeoHead } from '@/components/seo/SeoHead'
 import { MyText } from '@/components/ui/MyText'
-import {
-  Button,
-  Flex,
-  Card,
-  CardBody,
-  Stack,
-  Text,
-  Image,
-  Divider,
-} from '@chakra-ui/react'
+import { Button, Flex, Card, CardBody, Stack, Text, Divider } from '@chakra-ui/react'
+import Image from 'next/image'
+
 export default function Rider() {
   return (
     <>
-      <Head>
-        <title>Tarło - Rider</title>
-        <meta
-          name='description'
-          content='Sprawdź Rider zespołu Tarło. Zobacz informacje o sprzęcie dźwiękowym, systemie odsłuchowym i pobierz szczegółowy dokument w formacie PDF.'
-        />
-        <meta
-          name='keywords'
-          content='Tarło, Rider, sprzęt dźwiękowy, system odsłuchowy, dokument PDF'
-        />
-        <meta name='robots' content='index, follow' />
-        <link rel='canonical' href='https://www.tarlo.pl/rider' />
-      </Head>
+      <SeoHead
+        title='Tarlo - Rider techniczny'
+        description='Sprawdz rider techniczny zespolu Tarlo i pobierz dokument PDF.'
+        path='/rider'
+        keywords='Tarlo rider, rider techniczny, sprzet koncertowy'
+      />
       <MyText>Rider</MyText>
       <Flex mt={{ base: 2, xl: 1 }} align='top' justifyContent='center'>
         <Card maxW='sm' m={{ base: '4', md: '0' }}>
           <CardBody>
             <Image
               src='/rack.jpg'
-              alt='Green double couch with wooden legs'
-              borderRadius='lg'
+              alt='Rack zespolu Tarlo'
+              width={640}
+              height={420}
+              sizes='(max-width: 768px) 100vw, 640px'
+              style={{ borderRadius: '8px', width: '100%', height: 'auto' }}
             />
             <Stack mt='6' spacing='3'>
               <Text>
-                Zespół dysponuję własnym rackiem dźwiękowym oraz kompletnym
-                systemem odsłuchowym. Technicy dźwięku, prosimy o uwzględnienie
-                tego podczas przygotowań technicznych.
+                Zespol dysponuje wlasnym rackiem dzwiekowym oraz kompletnym systemem odsluchowym. Prosba o
+                uwzglednienie tego podczas przygotowan technicznych.
               </Text>
             </Stack>
           </CardBody>
           <Divider />
-          <Flex
-            direction='column'
-            justifyContent='center'
-            alignItems='center'
-            m={2}
-            p={2}
-          >
-            <Button variant='solid'>
-              <a
-                href='/Tarło-rider.pdf'
-                target='_blank'
-                download
-                type='application/pdf'
-              >
-                Pobierz
-              </a>
+          <Flex direction='column' justifyContent='center' alignItems='center' m={2} p={2}>
+            <Button as={NextLink} href='/Tarło-rider.pdf' target='_blank' rel='noopener noreferrer' variant='solid'>
+              Pobierz PDF
             </Button>
           </Flex>
         </Card>
@@ -68,3 +43,4 @@ export default function Rider() {
     </>
   )
 }
+
