@@ -8,6 +8,19 @@ type ConcertsProps = {
   concerts: Concert[]
 }
 
+function getGoogleMapsSearchLink(place: string) {
+  const cleaned = place.trim()
+  if (!cleaned) {
+    return null
+  }
+
+  if (cleaned.toLowerCase().includes('potwierdzenia')) {
+    return null
+  }
+
+  return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(cleaned)}`
+}
+
 export const getStaticProps: GetStaticProps<ConcertsProps> = async () => {
   const concerts = await getConcertsData()
 
@@ -56,29 +69,46 @@ export default function Concerts({ concerts }: ConcertsProps) {
             <Table variant='simple' size='lg'>
               <Thead>
                 <Tr>
-                  <Th>Miejsce</Th>
                   <Th display={{ base: 'none', md: 'table-cell' }}>Wydarzenie</Th>
+                  <Th>Miejsce</Th>
                   <Th>Data</Th>
                   <Th>Link</Th>
                 </Tr>
               </Thead>
               <Tbody>
-                {concerts.map((item, index) => (
-                  <Tr key={`${item.place}-${index}`}>
-                    <Td>{item.place}</Td>
-                    <Td display={{ base: 'none', md: 'table-cell' }}>{item.name}</Td>
-                    <Td>{item.date}</Td>
-                    <Td>
-                      {item.link ? (
-                        <Link href={item.link} isExternal color='red.400'>
-                          Szczegoly
-                        </Link>
-                      ) : (
-                        '-'
-                      )}
-                    </Td>
-                  </Tr>
-                ))}
+                {concerts.map((item, index) => {
+                  const mapsLink = getGoogleMapsSearchLink(item.place)
+
+                  return (
+                    <Tr key={`${item.place}-${index}`}>
+                      <Td display={{ base: 'none', md: 'table-cell' }} maxW='320px'>
+                        <Text wordBreak='break-word' overflowWrap='anywhere'>
+                          {item.name}
+                        </Text>
+                      </Td>
+                      <Td maxW={{ base: '200px', md: '340px' }} whiteSpace='normal'>
+                        <Text fontWeight='medium' wordBreak='break-word' overflowWrap='anywhere'>
+                          {item.place}
+                        </Text>
+                        {mapsLink ? (
+                          <Link href={mapsLink} isExternal color='teal.400' fontSize='sm'>
+                            Google Maps
+                          </Link>
+                        ) : null}
+                      </Td>
+                      <Td whiteSpace='nowrap'>{item.date}</Td>
+                      <Td>
+                        {item.link ? (
+                          <Link href={item.link} isExternal color='red.400'>
+                            Szczegoly
+                          </Link>
+                        ) : (
+                          '-'
+                        )}
+                      </Td>
+                    </Tr>
+                  )
+                })}
               </Tbody>
             </Table>
           </TableContainer>

@@ -17,6 +17,22 @@ type GoogleDriveFilesResponse = {
   }>
 }
 
+type RiderCacheEntry = {
+  value: RiderPdfInfo
+  expiresAt: number
+}
+
+let riderCache: RiderCacheEntry | null = null
+
+function getCacheTtlMs() {
+  const rawSeconds = Number(process.env.RIDER_CACHE_TTL_SECONDS || '300')
+  if (Number.isNaN(rawSeconds) || rawSeconds < 0) {
+    return 300 * 1000
+  }
+
+  return rawSeconds * 1000
+}
+
 function toAbsolutePath(inputPath: string) {
   if (path.isAbsolute(inputPath)) {
     return inputPath
@@ -120,47 +136,59 @@ export function getRiderDriveApiKey() {
 }
 
 export async function getRiderPdfInfo(): Promise<RiderPdfInfo> {
+  const now = Date.now()
+  if (riderCache && riderCache.expiresAt > now) {
+    return riderCache.value
+  }
+
   const drivePdf = await resolveDrivePdfFromFolder()
   if (drivePdf) {
-    return {
+    const value: RiderPdfInfo = {
       absolutePath: null,
       driveFileId: drivePdf.id,
       fileName: drivePdf.name,
       updatedAt: drivePdf.modifiedTime || null,
       source: 'drive',
     }
+    riderCache = { value, expiresAt: now + getCacheTtlMs() }
+    return value
   }
 
   const configuredPdfPath = resolveConfiguredPdfPath()
   if (configuredPdfPath && fs.existsSync(configuredPdfPath)) {
     const stats = fs.statSync(configuredPdfPath)
-    return {
+    const value: RiderPdfInfo = {
       absolutePath: configuredPdfPath,
       driveFileId: null,
       fileName: path.basename(configuredPdfPath),
       updatedAt: stats.mtime.toISOString(),
       source: 'configured',
     }
+    riderCache = { value, expiresAt: now + getCacheTtlMs() }
+    return value
   }
 
   const publicPdfPath = resolvePublicPdfPath()
   if (publicPdfPath && fs.existsSync(publicPdfPath)) {
     const stats = fs.statSync(publicPdfPath)
-    return {
+    const value: RiderPdfInfo = {
       absolutePath: publicPdfPath,
       driveFileId: null,
       fileName: path.basename(publicPdfPath),
       updatedAt: stats.mtime.toISOString(),
       source: 'public',
     }
+    riderCache = { value, expiresAt: now + getCacheTtlMs() }
+    return value
   }
 
-  return {
+  const value: RiderPdfInfo = {
     absolutePath: null,
     driveFileId: null,
     fileName: null,
     updatedAt: null,
     source: 'none',
   }
+  riderCache = { value, expiresAt: now + getCacheTtlMs() }
+  return value
 }
-

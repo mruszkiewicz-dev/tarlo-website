@@ -1,4 +1,4 @@
-import type { GetServerSideProps } from 'next'
+import type { GetStaticProps } from 'next'
 import { SeoHead } from '@/components/seo/SeoHead'
 import { MyText } from '@/components/ui/MyText'
 import { Button, Flex, Card, CardBody, Stack, Text, Divider } from '@chakra-ui/react'
@@ -11,7 +11,7 @@ type RiderProps = {
   riderSource: 'configured' | 'public' | 'drive' | 'none'
 }
 
-export const getServerSideProps: GetServerSideProps<RiderProps> = async () => {
+export const getStaticProps: GetStaticProps<RiderProps> = async () => {
   const rider = await getRiderPdfInfo()
 
   return {
@@ -20,6 +20,7 @@ export const getServerSideProps: GetServerSideProps<RiderProps> = async () => {
       riderUpdatedAt: rider.updatedAt,
       riderSource: rider.source,
     },
+    revalidate: 60 * 5,
   }
 }
 

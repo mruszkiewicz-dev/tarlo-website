@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import {
   Flex,
   Text,
@@ -8,6 +9,7 @@ import {
   CardFooter,
   Divider,
   Box,
+  Skeleton,
 } from '@chakra-ui/react'
 import { CardAlbumSong } from './CardAlbumSong'
 import Image from 'next/image'
@@ -32,27 +34,51 @@ interface CardAlbumProps {
   songs: SongsItem[]
 }
 
+const coverPositionByAlbum: Record<string, string> = {
+  prolog: 'center 78%',
+  lawka: 'center 72%',
+  perlowe: 'center 70%',
+}
+
 export const CardAlbum: React.FC<CardAlbumProps> = ({
   name,
   id,
   desc,
   songs,
 }) => {
+  const [isImageLoaded, setIsImageLoaded] = useState(false)
+  const coverPosition = coverPositionByAlbum[id] || 'center center'
+
   return (
     <Card m={8} align='center' maxW='md'>
       <CardHeader>
         <Heading size='md'>{name}</Heading>
       </CardHeader>
       <CardBody>
-        <Box borderRadius='lg' overflow='hidden' mb={2}>
-          <Image
-            src={`/albums/${id}.jpg`}
-            alt={`${name} okladka albumu`}
-            width={500}
-            height={500}
-            sizes='(max-width: 768px) 100vw, 500px'
-            style={{ width: '100%', height: 'auto' }}
-          />
+        <Box
+          borderRadius='lg'
+          overflow='hidden'
+          mb={3}
+          bg='blackAlpha.400'
+          sx={{ aspectRatio: '1 / 1' }}
+        >
+          <Skeleton isLoaded={isImageLoaded} w='100%' h='100%' borderRadius='lg'>
+            <Box position='relative' w='100%' h='100%'>
+              <Image
+                src={`/albums/${id}.jpg`}
+                alt={`${name} okladka albumu`}
+                fill
+                sizes='(max-width: 768px) 92vw, (max-width: 1280px) 33vw, 420px'
+                loading='lazy'
+                quality={70}
+                style={{
+                  objectFit: 'cover',
+                  objectPosition: coverPosition,
+                }}
+                onLoad={() => setIsImageLoaded(true)}
+              />
+            </Box>
+          </Skeleton>
         </Box>
         {desc.map((item, index) => (
           <Flex
