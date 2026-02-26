@@ -19,6 +19,8 @@ export default function Crew() {
         align='center'
         justifyContent='center'
         flexDirection={{ base: 'column', xl: 'row' }}
+        flexWrap='wrap'
+        gap={{ base: 2, md: 3 }}
         px={{ base: 2, md: 4 }}
       >
         {band.map((item) => (
