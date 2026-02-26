@@ -12,8 +12,10 @@ const musicGroupSchema = {
   '@context': 'https://schema.org',
   '@type': 'MusicGroup',
   name: 'Tarlo',
+  alternateName: 'Tarlo Rock Band',
   url: 'https://www.tarlo.pl',
-  image: 'https://www.tarlo.pl/logo_black.png',
+  image: 'https://www.tarlo.pl/search-preview.svg',
+  logo: 'https://www.tarlo.pl/search-preview.svg',
   genre: 'Rock',
   sameAs: [
     'https://open.spotify.com/artist/3q6XSZRNzCvuTsTWdgTb4V/discography',
@@ -24,18 +26,31 @@ const musicGroupSchema = {
   ],
 }
 
+const websiteSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: 'Tarlo',
+  alternateName: 'Tarlo Rock Band',
+  url: 'https://www.tarlo.pl',
+}
+
 const Main = ({ children }: MainProps) => {
   return (
     <>
       <Head>
         <meta property='og:site_name' content='Tarlo' />
         <meta property='og:type' content='website' />
-        <meta property='og:image' content='https://www.tarlo.pl/logo_black.png' />
+        <meta property='og:image' content='https://www.tarlo.pl/search-preview.svg' />
         <meta name='theme-color' content='#0f1014' />
         <link rel='icon' href='/favicon.ico' />
+        <link rel='image_src' href='https://www.tarlo.pl/search-preview.svg' />
         <script
           type='application/ld+json'
           dangerouslySetInnerHTML={{ __html: JSON.stringify(musicGroupSchema) }}
+        />
+        <script
+          type='application/ld+json'
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
         />
       </Head>
 
@@ -51,4 +66,3 @@ const Main = ({ children }: MainProps) => {
 }
 
 export default Main
-

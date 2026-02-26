@@ -79,8 +79,8 @@ export default function Home() {
   return (
     <>
       <SeoHead
-        title='Tarlo - Oficjalna Strona Zespolu'
-        description='Oficjalna strona zespolu Tarlo. Sprawdz koncerty, dyskografie, galerie i kontakt bookingowy.'
+        title='Tarlo - Oficjalna Strona Zespolu Rockowego'
+        description='Oficjalna strona zespolu Tarlo. Koncerty, albumy, galeria i kontakt bookingowy.'
         path='/'
         keywords='Tarlo, zespol rockowy, koncerty, albumy, galeria, booking'
       />
